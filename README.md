@@ -1,1 +1,1 @@
-#%100 Özgün Feylesof websitesi.
+# %100 Özgün Feylesof websitesi.
