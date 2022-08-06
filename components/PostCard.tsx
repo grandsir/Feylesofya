@@ -9,7 +9,8 @@ const gradients = [
     "from-green-400 to-blue-600",
     "from-cyan-500 to-blue-500",
     "from-purple-600 to-blue-500",
-    "from-teal-300 to-lime-300"
+    "from-teal-300 to-lime-300",
+    "from-red-200 via-red-300 to-yellow-200"
 ]
 const PostCard = (post : Post) => {
     return ( 
@@ -26,10 +27,10 @@ const PostCard = (post : Post) => {
                     className="object-fit absolute w-full shadow-lg rounded-t-lg lg:rounded-lg"
                 />
             </div>
-            <div className="w-full flex">
+            <div className="w-full flex justify-center">
             { 
             post.node.categories.map((category, index) => 
-                <div className={`relative m-auto inline-flex shadow-xl items-center content-center justify-center p-0.5 mb-4 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br ${gradients[Math.floor(Math.random()*gradients.length)]}`}>
+                <div className={`relative inline-flex mx-2 shadow-xl p-0.5 mb-4 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br ${gradients[Math.floor(Math.random()*gradients.length)]}`}>
                     <span className="relative px-5 py-2.5 transition-all ease-in duration-75 shadow-2xl rounded-full font-semibold ">
                         {category.name}
                     </span>
