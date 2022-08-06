@@ -3,6 +3,7 @@ import { Post, toLocalizedAuthor } from "./Models";
 import moment from "moment";
 import Link from "next/link";
 
+  
 const PostCard = (post : Post) => {
     return ( 
         <div className="bg-white shadow-lg rounded-lg p-1 lg:pl-4 lg:pr-4 max-w-2xl">
@@ -30,8 +31,9 @@ const PostCard = (post : Post) => {
                         <div className="flex justify-center mb-7 lg:mb-0 w-full lg:w-auto mr-8">
                             <img
                                 alt={author.bio}
-                                width= "50px"
-                                className="align-middle rounded-full mr-4"
+                                width= {"50"}
+                                height={"50"}
+                                className="align-middle rounded-full object-scale-down mr-4"
                                 src= {author.photo.url}
                             />
                             <p className="flex flex-col">
@@ -41,13 +43,21 @@ const PostCard = (post : Post) => {
                                 <span className="text-left font-thin">
                                     {toLocalizedAuthor(post.node.roles[index])}
                                 </span>
-
                             </p>
                         </div>
-                    ))
+                    )
+                    )
                     }
             </div>
             <p className="p-4">{post.node.excerpt}</p>
+            <div id="container" className="pl-2">
+                <button className="read-more glow-on-hover">
+                    <span className="circle" aria-hidden="true">
+                    <span className="icon arrow"></span>
+                    </span>
+                    <span className="button-text">Okumaya Devam Et</span>
+                </button>
+                </div>
             </div>
     )
 }
