@@ -200,11 +200,11 @@ button {
 }
 
 .glow-on-hover:active {
-    color: #000
+    color: #fff
 }
 
 .glow-on-hover:active:after {
-    background: transparent;
+    background: white;
     transition-delay: 0s;
 }
 

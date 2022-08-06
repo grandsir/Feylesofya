@@ -3,7 +3,14 @@ import { Post, toLocalizedAuthor } from "./Models";
 import moment from "moment";
 import Link from "next/link";
 
-  
+const gradients = [
+    "from-pink-500 to-orange-400",
+    "from-purple-500 to-pink-500",
+    "from-green-400 to-blue-600",
+    "from-cyan-500 to-blue-500",
+    "from-purple-600 to-blue-500",
+    "from-teal-300 to-lime-300"
+]
 const PostCard = (post : Post) => {
     return ( 
         <div className="bg-white shadow-lg rounded-lg p-1 lg:pl-4 lg:pr-4 max-w-2xl">
@@ -19,7 +26,18 @@ const PostCard = (post : Post) => {
                     className="object-fit absolute w-full shadow-lg rounded-t-lg lg:rounded-lg"
                 />
             </div>
-            <span className="font-post_title px-4"> { post.node.categories[0].name } </span>
+            <div className="w-full flex">
+            { 
+            post.node.categories.map((category, index) => 
+                <div className={`relative m-auto inline-flex shadow-xl items-center content-center justify-center p-0.5 mb-4 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br ${gradients[Math.floor(Math.random()*gradients.length)]}`}>
+                    <span className="relative px-5 py-2.5 transition-all ease-in duration-75 shadow-2xl rounded-full font-semibold ">
+                        {category.name}
+                    </span>
+                </div>
+            )
+            }
+            </div>
+
             <h1 className="transition duration-500 text-center mb-8 cursor-pointer hover:text-blue-600 text-3xl font-semibold">
                 <Link href={`/post/${post.node.slug}`}>
                     {`${post.node.title}dir?` /* dir? ne diye sorma */ } 
@@ -50,7 +68,8 @@ const PostCard = (post : Post) => {
                     }
             </div>
             <p className="p-4">{post.node.excerpt}</p>
-            <div id="container" className="pl-2">
+            <hr className="pb-5"></hr>
+            <div id="container" className="pl-2 pb-3">
                 <button className="read-more glow-on-hover">
                     <span className="circle" aria-hidden="true">
                     <span className="icon arrow"></span>
