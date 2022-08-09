@@ -1,3 +1,4 @@
+import 'flowbite-react'
 import React from "react";
 import { Post, toLocalizedAuthor } from "./Models";
 import moment from "moment";
@@ -22,15 +23,14 @@ const PostCard = (post : Post) => {
                     <span className="text-blue-700">Yazar Önerisi</span> 
                 </div>
             </div>
-            <div className="relative mb-7 mt-3 mx-2 lg:mx-0">
+            <div className="mx-auto relative mb-7 mt-3 mx-2 lg:mx-0">
                 <img
                     src={post.node.featuredImage.url}
+                    height = "440"
                     alt={post.node.title}
-                    height={"440"}
-                    width={"900"}
-                    className="shadow-lg rounded-lg"
+                    className="m-auto shadow-lg rounded-lg max-h-img"
                 />
-                <div className="absolute bottom-0 left-0 ml-1">
+                <div className="absolute left-0 bottom-0 hidden sm:block ml-1">
                     { 
                     post.node.categories.map((category, index) => 
                     <div className={`cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br ${gradients[Math.floor(Math.random()*gradients.length)]}`}>                    
@@ -44,30 +44,50 @@ const PostCard = (post : Post) => {
                     }
                     </div>
             </div>
-            <h1 className="transition duration-100 text-center mb-4 cursor-pointer hover:text-blue-600 text-3xl font-semibold">
+            <h1 className="transition duration-100 text-center mb-4 cursor-pointer hover:text-blue-600 text-xl sm:text-2xl lg:text-3xl font-semibold">
                 <Link href={`/post/${post.node.slug}`}>
                     {`${post.node.title}`} 
                 </Link>
             </h1>
-            <p className="p-4">{post.node.excerpt}</p>
+            <p className="p-4 text-sm md:text-base lg:text-base">{post.node.excerpt}</p>
             <div id="container" className="flex pl-2 pb-4 justify-end w-full">
+                <Link href={post.node.slug}>
                 <button className="read-more glow-on-hover">
                     <span className="circle" aria-hidden="true">
                     <span className="icon arrow"></span>
                     </span>
                     <span className="button-text">Okumaya Devam Et</span>
                 </button>
+                </Link>
             </div>
         </div>
-        <div className="bg-[#ededed] block lg:flex lg:justify-between md:justify-left lg:mb-3 w-full rounded-b-lg px-5 pt-3 lg:p-5">
+        <div className="bg-[#ededed] hidden sm:flex justify-between md:justify-left lg:mb-3 w-full rounded-b-lg px-5 pt-3 lg:p-5">
         {
         post.node.authors.map((author, index) => (
-            <div className="flex lg:justify-center md:justify-left w-full lg:w-auto lg:mr-8">
+            <div>
+            <button id="dropdownTopButton" data-dropdown-toggle="dropdownTop" data-dropdown-placement="top" class="mr-3 mb-3 md:mb-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown top <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg></button>
+
+            <div id="dropdownTop" className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                <ul className="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownTopButton">
+                    <div id="container" className="flex pl-2 pb-4 justify-end w-full">
+                    <Link href={post.node.slug}>
+                    <button className="read-more glow-on-hover">
+                        <span className="circle" aria-hidden="true">
+                        <span className="icon arrow"></span>
+                        </span>
+                        <span className="button-text">Okumaya Devam Et</span>
+                    </button>
+                </Link>
+            </div>
+                </ul>
+            </div>
+            <Link href={author.slug}>
+            <div className="peer cursor-pointer flex lg:justify-center md:justify-left w-full w-auto sm:mb-0 sm:p-1 lg:mb-0 lg:p-0 lg:mr-8 text-sm md:text-base lg:text-base">
                 <img
                     alt={author.bio}
-                    width= {"50"}
-                    height={"50"}
-                    className="align-middle rounded-full object-scale-down mb-4 lg:mb-0 mr-4"
+                    width="50"
+                    height="50"
+                    className="align-middle max-h-sm hidden sm:block rounded-full mb-4 lg:mb-0 mr-4"
                     src= {author.photo.url}
                 />
                 <p className="flex flex-col">
@@ -77,7 +97,15 @@ const PostCard = (post : Post) => {
                     <span className="text-left font-thin">
                         {toLocalizedAuthor(post.node.roles[index])}
                     </span>
-            </p>
+                </p>
+            </div>
+            </Link>
+
+            <div className="absolute bottom-12 z-50 hidden peer-hover:flex hover:flex
+            w-[200px]
+            flex-col bg-white drop-shadow-lg">
+                <p> ecem mükemmel birisi </p>
+            </div>
             </div>
         )
     )

@@ -7,9 +7,10 @@ export type Category = {
     slug: string;
 }
 
-export type Author = { 
+export type Author = {
     bio: string;
     id: string;
+    slug: string;
     name: string;
     photo: Photo;
 }
