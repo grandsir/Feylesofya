@@ -18,6 +18,7 @@
     "react-multi-carousel": "^2.8.2",
     "reflect-metadata": "^0.1.13",
     "sass": "^1.54.0",
+    "tailwindcss-filters": "^3.0.0",
     "type-graphql": "^1.1.1"
   },
   "devDependencies": {

@@ -11,7 +11,7 @@ const categories : Category[] = [ 
 
 const Header = () => {
     return (
-        <div className='border-b-4 border-neutral-900 w-full bg-neutral-50'>
+        <div className='glass-block border-b-4 border-gray-600 rounded-none shadow-none w-full'>
             <div className='container mx-10'>
                 <div className='inline-block py-4 w-full'>
                     <div className='md:float-left block'>

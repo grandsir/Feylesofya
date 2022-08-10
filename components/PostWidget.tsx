@@ -2,8 +2,8 @@ import React from "react";
 
 const PostWidget = () => { 
     return ( 
-        <div>
-            PostWidget
+        <div className={"glass-block"}>
+            <h1>PostWidget</h1>
         </div> 
     )
 }

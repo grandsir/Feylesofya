@@ -1,35 +1,40 @@
-
-
 export const postQuery = `
 query PostQuery {
-    postsConnection {
-        edges {
-            node {
-                slug
-                createdAt
-                title
-          excerpt
-          roles
-          featuredImage {
+  postsConnection {
+    edges {
+      node {
+        slug
+        createdAt
+        title
+        excerpt
+        roles
+        featuredImage {
+          url
+        }
+        categories {
+          name
+          slug
+        }
+        feylesoflar {
+          nickname
+          id
+          bio
+          name
+          photo {
             url
           }
-          categories {
-            name
-            slug
+          slug
+          followers { 
+              nickname
           }
-          authors {
-            bio
-            id
-            name
-            slug
-            photo {
-              url
-            }
+          following { 
+            nickname
           }
         }
       }
     }
-  }  
+  }
+}
 `
 
 export const feylesofQuery = `

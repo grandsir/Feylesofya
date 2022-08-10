@@ -7,12 +7,14 @@ export type Category = {
     slug: string;
 }
 
-export type Author = {
+export type Feylesof = {
     bio: string;
     id: string;
     slug: string;
     name: string;
     photo: Photo;
+    followers: Feylesof[]
+    following: Feylesof[]
 }
 
 type Node = {
@@ -21,7 +23,7 @@ type Node = {
     featuredImage: featuredImage;
     slug: string;
     categories: Category[];
-    authors: Author[];
+    feylesoflar: Feylesof[];
     roles: string[];
 }
 
