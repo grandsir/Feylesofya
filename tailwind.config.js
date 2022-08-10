@@ -14,6 +14,9 @@ module.exports = {
       },
       maxHeight : { 
         'img': "28rem" 
+      },
+      maxWidth : { 
+        'img': "32rem"
       }
     },
   },

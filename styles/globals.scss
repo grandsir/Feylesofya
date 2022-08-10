@@ -233,3 +233,9 @@ button {
       background-position: 0 0; 
     }
 }
+
+@media all and (min-width: 330px)  {  .category  { font-size:0.75em; padding: 4px 5px; }}
+@media all and (min-width: 700px)  {  .category  { font-size:0.8em; padding: 5px 5px; }}
+@media all and (min-width: 770px)  {  .category  { font-size:0.85em;  padding: 8px 12px;} }
+@media all and (min-width: 1000px) {  .category  { font-size:0.85em; padding: 7px 7px; } }
+@media all and (min-width: 1280px) {  .category  { font-size:0.96em; padding: 9px 7px; } }

@@ -23,26 +23,29 @@ const PostCard = (post : Post) => {
                     <span className="text-blue-700">Yazar Önerisi</span> 
                 </div>
             </div>
-            <div className="mx-auto relative mb-7 mt-3 mx-2 lg:mx-0">
+            <div className="grid justify-center relative mb-7 mt-3 mx-2 lg:mx-0 max-h-img min-w-img">
                 <img
                     src={post.node.featuredImage.url}
-                    height = "440"
                     alt={post.node.title}
-                    className="m-auto shadow-lg rounded-lg max-h-img"
+                    className="mx-auto shadow-lg rounded-lg max-h-img min-w-img"
                 />
-                <div className="absolute left-0 bottom-0 hidden sm:block ml-1">
-                    { 
-                    post.node.categories.map((category, index) => 
-                    <div className={`cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br ${gradients[Math.floor(Math.random()*gradients.length)]}`}>                    
-                    <Link href={`/kategori/${category.slug}`}>
-                        <span className="relative px-3 py-2.5 transition-all ease-in duration-75 shadow-2xl rounded-full font-semibold">
-                            {category.name}
-                        </span>
-                    </Link>
+                <div className='relative ml-2'>
+                    <div className="absolute bottom-0 left-0">
+                        { 
+                        post.node.categories.map((category, index) => 
+                        <div className={`max-w-40 cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br ${gradients[Math.floor(Math.random()*gradients.length)]}`}>                    
+                        <Link href={`/kategori/${category.slug}`}>
+                            <span className='category'>
+                                <span className="transition-all ease-in duration-75 shadow-2xl rounded-full font-semibold ">
+                                    {category.name}
+                                </span>
+                            </span>
+                        </Link>
+                        </div>
+                        )
+                        }
                     </div>
-                    )
-                    }
-                    </div>
+                </div>
             </div>
             <h1 className="transition duration-100 text-center mb-4 cursor-pointer hover:text-blue-600 text-xl sm:text-2xl lg:text-3xl font-semibold">
                 <Link href={`/post/${post.node.slug}`}>

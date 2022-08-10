@@ -5,7 +5,6 @@ import {PostCard, PostWidget, Categories} from '../components';
 import { Post } from '../components/Models';
 import { getQuery, getFeylesof } from '../services'
 import { postQuery, feylesofQuery } from '../services'
-import Script from 'next/script';
 type HomeProps = { 
   posts: Post[];
   children: JSX.Element;
