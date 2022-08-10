@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        lato: ["Lato"],
-        post_title: ["Post"]
+        article_content: ["article_content"],
+        post_title: ["post_title"]
       },
       maxHeight : { 
         'img': "28rem" 

@@ -39,7 +39,6 @@ query FeylesofQuery {
         node {
           name
           registerDate
-          surname
         }
       }
     }
