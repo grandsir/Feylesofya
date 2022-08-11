@@ -42,8 +42,20 @@ query FeylesofQuery {
     feylesoflarConnection {
       edges {
         node {
+          nickname
+          id
+          bio
           name
-          registerDate
+          photo {
+            url
+          }
+          slug
+          followers { 
+              nickname
+          }
+          following { 
+            nickname
+          }
         }
       }
     }
