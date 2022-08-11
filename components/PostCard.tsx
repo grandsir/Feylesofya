@@ -4,8 +4,12 @@ import {Post, toLocalizedAuthor} from "./Models";
 import moment from "moment";
 import Link from "next/link";
 
+<<<<<<< Updated upstream
 //yorum 
 
+=======
+//saçma bir şey
+>>>>>>> Stashed changes
 const gradients = [
     "from-pink-500 to-orange-400",
     "from-purple-500 to-pink-500",
