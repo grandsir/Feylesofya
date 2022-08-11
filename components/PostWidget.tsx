@@ -2,7 +2,7 @@ import React from "react";
 
 const PostWidget = () => { 
     return ( 
-        <div className={"glass-block"}>
+        <div>
             <h1>PostWidget</h1>
         </div> 
     )
