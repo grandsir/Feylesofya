@@ -294,6 +294,10 @@ button {
     }
 }
 
+.svg-glow {
+  -webkit-filter: drop-shadow(0px 0px 6px rgba(84,91,242,1));
+}
+
 @media all and (min-width: 330px)  {  .category  { font-size:0.75em; padding: 4px 5px; }}
 @media all and (min-width: 700px)  {  .category  { font-size:0.8em; padding: 5px 5px; }}
 @media all and (min-width: 770px)  {  .category  { font-size:0.85em;  padding: 8px 12px;} }

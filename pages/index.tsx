@@ -3,9 +3,12 @@ import Head from 'next/head'
 import React from 'react';
 import { PostCard, PostWidget, Categories } from '../components';
 import {Feylesof, Post} from '../components/Models';
+import Sidebar from '../components/Sidebar';
 import { getQuery, getFeylesof } from '../services'
 import { postQuery, feylesofQuery } from '../services'
+
 import feylesof from "./feylesof";
+
 type HomeProps = { 
   posts: Post[];
   children: JSX.Element;
@@ -25,12 +28,12 @@ const Home: NextPage = ({posts}: HomeProps) => {
 
       </Head>
       <div className='mx-auto'>
+        <Sidebar></Sidebar>
         <div className='mt-32 lg:col-span-8 col-span-1'>
           {
             posts.map((post: Post) =>  <PostCard {...post}></PostCard>)
           }
         </div>
-
         <div className='lg:col-span-4 col-span-1'>
           <div className='lg:sticky relative top-8'>
             <PostWidget /> 
