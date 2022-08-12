@@ -2,9 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react';
 import {PostCard, PostWidget, Categories} from '../components';
-import { Post } from '../components/Models';
+import {Feylesof, Post} from '../components/Models';
 import { getQuery, getFeylesof } from '../services'
 import { postQuery, feylesofQuery } from '../services'
+import feylesof from "./feylesof";
 type HomeProps = { 
   posts: Post[];
   children: JSX.Element;

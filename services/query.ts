@@ -50,14 +50,19 @@ query FeylesofQuery {
             url
           }
           slug
-          followers { 
-              nickname
-          }
-          following { 
-            nickname
-          }
+          feylesofType 
         }
       }
     }
-  }  
-`
+}     
+      `
+
+
+/*export const getFeylesofBySlug = `
+query getFelyesofBySlug{
+  feylesof(where: {slug: ${slug}}) {
+    name
+  }
+}
+`*/
+

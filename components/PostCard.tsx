@@ -3,6 +3,8 @@ import React from "react";
 import {Post, toLocalizedAuthor} from "./Models";
 import moment from "moment";
 import Link from "next/link";
+import {feylesofQuery, getFeylesof} from "../services";
+
 
 const gradients = [
     "from-pink-500 to-orange-400",
@@ -15,6 +17,7 @@ const gradients = [
 ]
 const PostCard = (post: Post) => {
     console.log(post)
+
     return (
 
     <div className="glass-block max-w-2xl mx-auto mb-4 px-1">
