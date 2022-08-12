@@ -1,12 +1,10 @@
-import {feylesofQuery, getFeylesof, getQuery} from "../../services";
+import {feylesofQuery, getFeylesof} from "../../services";
 import {Feylesof} from "../../components/Models";
-import feylesof from "./index";
-import {NextPage} from "next";
 
 
 export async function getStaticPaths() {
   const feylesofData = (await getFeylesof(feylesofQuery));
-  const paths = feylesofData.map((feylesof) => ({
+  const paths = feylesofData.map((feylesof: Feylesof) => ({
     params: { slug: feylesof.node.slug },
   }))
   return {
@@ -15,16 +13,15 @@ export async function getStaticPaths() {
   }
 }
 
+//@ts-ignore
 export async function getStaticProps(context) {
-  const feylesofData = (await getFeylesof(feylesofQuery));
   const { params } = context
-  console.log(params)
   return {
     props: params
   }
 }
 
-
+//@ts-ignore
 export default function FeylesofPage(param){
   const slug = param.slug
   console.log(slug)

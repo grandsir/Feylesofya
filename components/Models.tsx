@@ -1,5 +1,9 @@
 export type Post = {
-    node: Node;
+    node: PostNode;
+}
+
+export type Feylesof = {
+    node: FeylesofNode
 }
 
 export type Category = {
@@ -7,7 +11,7 @@ export type Category = {
     slug: string;
 }
 
-export type Feylesof = {
+type FeylesofNode = {
     bio: string;
     id: string;
     slug: string;
@@ -17,7 +21,7 @@ export type Feylesof = {
     following: Feylesof[]
 }
 
-type Node = {
+type PostNode = {
     title: string;
     excerpt: string;
     featuredImage: featuredImage;
