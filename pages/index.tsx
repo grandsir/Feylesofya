@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react';
-import {PostCard, PostWidget, Categories} from '../components';
+import { PostCard, PostWidget, Categories } from '../components';
 import {Feylesof, Post} from '../components/Models';
 import { getQuery, getFeylesof } from '../services'
 import { postQuery, feylesofQuery } from '../services'
@@ -25,7 +25,7 @@ const Home: NextPage = ({posts}: HomeProps) => {
 
       </Head>
       <div className='mx-auto'>
-        <div className='lg:col-span-8 col-span-1'>
+        <div className='mt-32 lg:col-span-8 col-span-1'>
           {
             posts.map((post: Post) =>  <PostCard {...post}></PostCard>)
           }
@@ -41,7 +41,6 @@ const Home: NextPage = ({posts}: HomeProps) => {
     </div>
   )
 }
-
 
 export async function getStaticProps() {
   const posts = (await getQuery(postQuery)) || [];
