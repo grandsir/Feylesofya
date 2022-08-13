@@ -10,13 +10,17 @@ module.exports = {
     extend: {
       fontFamily: {
         article_content: ["article_content"],
-        post_title: ["post_title"]
+        post_title: ["post_title"],
+        category_title: ["category_title"]
       },
       maxHeight : { 
         'img': "28rem" 
       },
       maxWidth : {  
         'img': "32rem"
+      },
+      minWidth : {  
+        'post': "45rem"
       }
     },
   },

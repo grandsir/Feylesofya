@@ -9,7 +9,11 @@
 }
 @font-face {
   font-family: "post_title";
-  src: url("../public/fonts/Hartwell/Bold.otf");
+  src: url("../public/fonts/Sofia Pro Bold.ttf");
+}
+@font-face {
+  font-family: "category_title";
+  src: url("../public/fonts/Sofia Pro Regular.ttf");
 }
 .section {
 }
@@ -296,6 +300,80 @@ button {
 
 .svg-glow {
   -webkit-filter: drop-shadow(0px 0px 6px rgba(84,91,242,1));
+
+
+}
+
+.category-container {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  font-size: 1.4em;
+  text-align: center;
+  color:white;
+  transition: 0s;
+}
+
+.category-container .category-card .face{
+  width:200px;
+  height: 150px;
+  transition:.4s;
+}
+
+.category-container .category-card .face.face1{
+  background: rgba( 0, 0, 0, 0.35 );
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+.category-container .category-card:hover .face.face1 {
+  box-shadow:
+    inset 0 0 60px whitesmoke,
+    inset 20px 0 80px #fff,
+    inset -20px 0 80px #fff,
+    inset 20px 0 300px #fff,
+    inset -20px 0 300px #fff,
+    0 0 15px #fff,
+    -3px 0 15px #fff,
+    3px 0 15px #0ff;
+    cursor: pointer;
+    border: none;
+    color: black;
+}
+
+.content-image {
+}
+
+.category-container .category-card:hover .face.face1 .content-image {
+  transition: 0.4s;
+  filter: invert(1);
+}
+.category-container .category-card:hover .face.face1 h3 {
+  transition: 0s;
+}
+
+.category-container .category-card .face.face1 .content{
+  opacity: .4;
+  transition: 0.3s;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.category-container .category-card:hover .face.face1 .content{
+  opacity: 1;
+}
+
+.category-container .category-card .face.face1 .content a{
+  transition: .5s;
 }
 
 @media all and (min-width: 330px)  {  .category  { font-size:0.75em; padding: 4px 5px; }}
@@ -303,3 +381,9 @@ button {
 @media all and (min-width: 770px)  {  .category  { font-size:0.85em;  padding: 8px 12px;} }
 @media all and (min-width: 1000px) {  .category  { font-size:0.85em; padding: 7px 7px; } }
 @media all and (min-width: 1280px) {  .category  { font-size:0.96em; padding: 9px 7px; } }
+
+
+
+.category-text {
+    box-shadow: 0 4px 6px -6px 	#0096FF;
+}
