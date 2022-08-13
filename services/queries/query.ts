@@ -1,3 +1,5 @@
+import {Feylesof} from "../components/Models";
+
 export const postQuery = `
 query PostQuery {
   postsConnection {
@@ -47,5 +49,15 @@ query FeylesofQuery {
         }
       }
     }
+<<<<<<< Updated upstream:services/query.ts
   }  
 `
+=======
+}     
+`
+<<<<<<< Updated upstream:services/queries/query.ts
+=======
+
+>>>>>>> Stashed changes:services/query.ts
+
+>>>>>>> Stashed changes:services/queries/query.ts

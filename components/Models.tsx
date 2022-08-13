@@ -13,8 +13,8 @@ export type Feylesof = {
     slug: string;
     name: string;
     photo: Photo;
-    followers: Feylesof[]
-    following: Feylesof[]
+    followers: Feylesof[];
+    following: Feylesof[];
 }
 
 type Node = {

@@ -5,6 +5,13 @@ import {PostCard, PostWidget, Categories} from '../components';
 import { Post } from '../components/Models';
 import { getQuery, getFeylesof } from '../services'
 import { postQuery, feylesofQuery } from '../services'
+<<<<<<< Updated upstream
+=======
+
+import feylesof from "./feylesof";
+import {getFeylesofBySlugQuery} from "../services/queries/fromSlug";
+
+>>>>>>> Stashed changes
 type HomeProps = { 
   posts: Post[];
   children: JSX.Element;
@@ -44,7 +51,6 @@ const Home: NextPage = ({posts}: HomeProps) => {
 
 export async function getStaticProps() {
   const posts = (await getQuery(postQuery)) || [];
-
   return {
     props: { posts }
   }
