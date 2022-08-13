@@ -29,7 +29,7 @@ const Home: NextPage = ({posts}: HomeProps) => {
       </Head>
       <div className='mx-auto'>
         <Sidebar></Sidebar>
-        <div className='mt-32 lg:col-span-8 col-span-1'>
+        <div className='mt-16 lg:col-span-8 col-span-1'>
           {
             posts.map((post: Post) =>  <PostCard {...post}></PostCard>)
           }
