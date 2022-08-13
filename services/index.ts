@@ -17,5 +17,13 @@ export async function getFeylesof(query:string) {
     return result.feylesoflarConnection.edges;
 }
 
+export async function getFeylesofBySlug(query:string, variables:string) {
+    const q = gql`${query}`
+    const result = await request(graphqlAPI ?? "", q, variables);
+
+    return result.feylesof;
+}
+
+
 
 

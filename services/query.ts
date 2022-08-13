@@ -58,11 +58,5 @@ query FeylesofQuery {
       `
 
 
-/*export const getFeylesofBySlug = `
-query getFelyesofBySlug{
-  feylesof(where: {slug: ${slug}}) {
-    name
-  }
-}
-`*/
+
 
