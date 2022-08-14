@@ -55,7 +55,18 @@ query FeylesofQuery {
       }
     }
 }     
-      `
+`
+
+export const categoryQuery = `
+query CategoryQuery {
+      categories {
+          name
+          timesClicked
+          slug
+          iconPath
+      } 
+}
+`
 
 
 

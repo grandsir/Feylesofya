@@ -9,6 +9,8 @@ export type Feylesof = {
 export type Category = {
     name: string; 
     slug: string;
+    iconPath: string;
+    timesClicked: number;
 }
 
 type FeylesofNode = {

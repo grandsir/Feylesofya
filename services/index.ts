@@ -24,6 +24,14 @@ export async function getFeylesofBySlug(query:string, variables:string) {
     return result.feylesof;
 }
 
+export async function getCategories(query:string) {
+    const q = gql`${query}`
+    const result = await request(graphqlAPI ?? "", q);
+    const categories = result.categories;
+    console.log(categories)
+    return categories
+}
+
 
 
 
