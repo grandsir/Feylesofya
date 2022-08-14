@@ -28,11 +28,11 @@ var categories = [
 ];
 const Categories = () => {
   return (
-    <div className="sticky self-start top-32 justify-center align-middle text-center">
-      <span className="font-category_title text-white category-text ml-32 mt-8 pb-2 border-b border-[#0096FF] text-bold text-3xl align-middle text-center justify-center">
+    <div className="sticky self-start top-24 justify-center align-middle text-center">
+      <span className="font-category_title text-white category-text ml-36 mt-8 pb-2 border-b border-[#0096FF] text-bold text-3xl align-middle text-center justify-center">
         Popüler Kategoriler
       </span>
-      <div className="grid grid-cols-2 mt-12 ml-24 gap-x-8 gap-y-0">
+      <div className="grid grid-cols-2 mt-12 ml-24 gap-x-20 gap-y-0">
         {categories.map((category) => (
           <div id="container" className="mt-6 category-container">
             <div className="category-card">

@@ -18,7 +18,7 @@ const PostCard = (post: Post) => {
   console.log(post);
 
   return (
-    <div className="glass-block sm:min-w-post max-w-2xl mx-auto mb-4 px-1">
+    <div className="glass-block sm:min-w-post ml-20 max-w-2xl mb-4 px-1">
       <div className="lg:pl-4 lg:pr-4 p-1">
         <div className="flex justify-between text-sm pt-2 px-1">
           <div className="text-sm"></div>

@@ -17,7 +17,7 @@ type HomeProps = {
 // @ts-ignore
 const Home: NextPage = ({ posts }: HomeProps) => {
   return (
-    <div className="flex self-start container mx-auto px-10 mb-8 mt-5 h-max">
+    <div className="flex self-start container px-10 h-max">
       <Head>
         <link
           rel="stylesheet"
@@ -30,7 +30,7 @@ const Home: NextPage = ({ posts }: HomeProps) => {
         <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js" />
         <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
       </Head>
-      <div className="flex self-start mx-auto mt-24 h-screen w-screen">
+      <div className="flex self-start mt-9 min-h-screen">
         <Sidebar></Sidebar>
         <div className="lg:col-span-8 col-span-1">
           {posts.map((post: Post) => (

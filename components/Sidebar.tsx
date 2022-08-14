@@ -52,42 +52,40 @@ const sidebarMenu: SidebarProps[] = [
 
 const Sidebar = () => {
   return (
-    <div className="h-full">
-      <div className="self-start sticky top-24">
-        <aside className="pr-10 ">
-          <div className="py-4 px-3">
-            <ul className="space-y-2">
-              {sidebarMenu.map((sidebarItem: SidebarProps) => {
-                return (
-                  <li>
-                    <a
-                      href={sidebarItem.slug}
-                      className="flex items-center p-2 text-base font-normal text-gray-50 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-black"
+    <div className="sticky self-start top-16">
+      <aside className="pr-10">
+        <div className="py-4 px-3">
+          <ul className="space-y-2">
+            {sidebarMenu.map((sidebarItem: SidebarProps) => {
+              return (
+                <li>
+                  <a
+                    href={sidebarItem.slug}
+                    className="flex items-center p-2 text-base font-normal text-gray-50 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-black"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-glow flex-shrink-0 w-6 h-6 text-indigo-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="svg-glow flex-shrink-0 w-6 h-6 text-indigo-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d={sidebarItem.iconPath}
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      <span className="flex-1 ml-3 whitespace-nowrap">
-                        {sidebarItem.name}
-                      </span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </aside>
-      </div>
+                      <path
+                        fill-rule="evenodd"
+                        d={sidebarItem.iconPath}
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span className="flex-1 ml-3 whitespace-nowrap">
+                      {sidebarItem.name}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </aside>
     </div>
   );
 };
