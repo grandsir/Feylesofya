@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Category } from "./Models";
 
 import Link from "next/link";
-import Sidebar from "./Sidebar";
 
 const categories: Category[] = [
   { name: "Yok", slug: "here" },
@@ -15,7 +14,7 @@ const categories: Category[] = [
 
 const Header = () => {
   return (
-    <header className="fixed backdrop-blur-md top-0 z-50 bg-black bg-opacity-70 rounded-none shadow-none w-full">
+    <header className="sticky top-0 backdrop-blur-md top-0 z-50 bg-black bg-opacity-70 rounded-none shadow-none w-full">
       <div className="container mx-10">
         <div className="inline-block  w-full">
           <div className="md:float-left block">

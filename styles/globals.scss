@@ -15,8 +15,7 @@
   font-family: "category_title";
   src: url("../public/fonts/Sofia Pro Regular.ttf");
 }
-.section {
-}
+
 ::-webkit-scrollbar-track
 {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -63,7 +62,6 @@
 }
 html,
 body {
-  overflow: overlay;
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -131,12 +129,7 @@ $black: #282936;
   transition: $property $duration $ease;
 }
 
-* {
-  box-sizing: border-box;
-  &::before, &::after {
-    box-sizing: border-box;
-  }
-}
+
 
 button {
   margin: 0;

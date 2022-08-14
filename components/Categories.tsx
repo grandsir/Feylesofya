@@ -28,7 +28,7 @@ var categories = [
 ];
 const Categories = () => {
   return (
-    <div className="justify-center align-middle text-center">
+    <div className="sticky self-start top-32 justify-center align-middle text-center">
       <span className="font-category_title text-white category-text ml-32 mt-8 pb-2 border-b border-[#0096FF] text-bold text-3xl align-middle text-center justify-center">
         Popüler Kategoriler
       </span>
