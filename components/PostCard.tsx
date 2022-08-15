@@ -1,9 +1,11 @@
 import "flowbite-react";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Post, toLocalizedAuthor } from "./Models";
 import moment from "moment";
 import Link from "next/link";
-import { feylesofQuery, getFeylesof } from "../services";
+import {feylesofQuery, getCategories, getFeylesof} from "../services";
+import {shuffle} from "../scripts";
+import {categoryQuery} from "../services/query";
 
 const gradients = [
   "from-pink-500 to-orange-400",
@@ -14,7 +16,20 @@ const gradients = [
   "from-teal-300 to-lime-300",
   "from-red-200 via-red-300 to-yellow-200",
 ];
+
 const PostCard = (post: Post) => {
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getCategories(categoryQuery).then((newCategories) =>
+        setCategories(newCategories)
+    );
+  }, []);
+
+
+
+  const shuffledGradients = shuffle(gradients)
   return (
     <div className="glass-block sm:min-w-post ml-20 max-w-2xl mb-4 px-1">
       <div className="lg:pl-4 lg:pr-4 p-1">
@@ -29,12 +44,10 @@ const PostCard = (post: Post) => {
           />
           <div className="relative ml-2">
             <div className="absolute bottom-0 left-0">
-              {post.node.categories.map((category, index) => (
-                <div
-                  className={`max-w-40 cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${
-                    gradients[Math.floor(Math.random() * gradients.length)]
-                  }`}
-                >
+              {
+                post.node.categories.map((category, index) => (
+                  <div
+                  className={`max-w-40 cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${shuffledGradients[index]}`}>
                   <Link href={`/kategori/${category.slug}`}>
                     <span className="category">
                       <span className="transition-all ease-in duration-75 shadow-2xl rounded-full font-semibold ">
@@ -43,7 +56,9 @@ const PostCard = (post: Post) => {
                     </span>
                   </Link>
                 </div>
-              ))}
+                ))
+              }
+
             </div>
           </div>
         </div>

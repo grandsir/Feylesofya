@@ -2,7 +2,7 @@ import type {NextPage} from "next";
 import React, {useEffect, useMemo, useState} from "react";
 import Head from "next/head";
 import {Categories, PostCard} from "../components";
-import {Post} from "../components/Models";
+import {Category, Post} from "../components/Models";
 import Sidebar from "../components/Sidebar";
 import {getQuery, postQuery} from "../services";
 
@@ -43,7 +43,8 @@ const Home: NextPage = ({ posts }: HomeProps) => {
     postList,
   ]);
 
-  function changeCategory(category) {
+  function changeCategory(category : Category) {
+    // @ts-ignore
     setSelectedCategory(category);
   }
 

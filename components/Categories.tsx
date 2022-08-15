@@ -10,15 +10,17 @@ interface CategoryProps {
 //@ts-ignore
 const Categories = ( { changeCategory } : CategoryProps) => {
   const [categories, setCategories] = useState([]);
+
   useEffect(() => {
     getCategories(categoryQuery).then((newCategories) =>
       setCategories(newCategories)
     );
   }, []);
+
   const sortedCategories = React.useMemo(
     () =>
       categories
-        .sort(function (l, r) {
+            .sort(function (l, r) {
           return r.timesClicked - l.timesClicked;
         })
         .slice(0, 6),
