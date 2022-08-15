@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { getCategories } from "../services";
 import { categoryQuery } from "../services/query";
+import {Category} from "./Models";
+
+interface CategoryProps {
+    changeCategory: (category: Category) => void;
+}
 
 //@ts-ignore
-const Categories = (changeCategory) => {
-  console.log("kodlah");
-  console.log("kodlah");
-  console.log("kodlah");
-  console.log("kodlah");
-  console.log("kodlah");
-
+const Categories = ( { changeCategory } : CategoryProps) => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     getCategories(categoryQuery).then((newCategories) =>
@@ -32,12 +31,11 @@ const Categories = (changeCategory) => {
       </span>
       <div className="grid grid-cols-2 mt-12 ml-24 gap-x-20 gap-y-0">
         {sortedCategories.map((category) => (
-          <div id="kodlah4" className="mt-6 category-container">
-            <div id="kodlah3" className="category-card">
+          <div id={category.slug} className="mt-6 category-container">
+            <div className="category-card">
               <button onClick={() => changeCategory(category)}>
-                <div id="kodlah2" className="face face1">
+                <div className="face face1">
                   <div
-                    id="kodlah1"
                     className="content align-middle justify-center items-center"
                   >
                     <img

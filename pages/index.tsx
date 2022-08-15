@@ -1,13 +1,10 @@
-import type { NextPage } from "next";
-import React, { useEffect, useState, useMemo } from "react";
+import type {NextPage} from "next";
+import React, {useEffect, useMemo, useState} from "react";
 import Head from "next/head";
-import { PostCard, PostWidget, Categories } from "../components";
-import { Feylesof, Post } from "../components/Models";
+import {Categories, PostCard} from "../components";
+import {Post} from "../components/Models";
 import Sidebar from "../components/Sidebar";
-import { getQuery, getFeylesof } from "../services";
-import { postQuery, feylesofQuery } from "../services";
-import Script from "next/script";
-import feylesof from "./feylesof";
+import {getQuery, postQuery} from "../services";
 
 type HomeProps = {
   posts: Post[];
@@ -23,11 +20,9 @@ const Home: NextPage = ({ posts }: HomeProps) => {
     getQuery(postQuery).then((posts) => setPostList(posts));
   }, []);
 
-  function filterPosts(post) {
+  function filterPosts(post: Post) {
     var filtered = false;
     post.node.categories.map((category) => {
-      console.log(selectedCategory);
-      console.log(category);
       if (category.name === selectedCategory.name) {
         filtered = true;
         return;
@@ -40,8 +35,7 @@ const Home: NextPage = ({ posts }: HomeProps) => {
     if (!selectedCategory) {
       return postList;
     }
-    const filteredPosts = postList.filter((post) => filterPosts(post));
-    return filteredPosts;
+    return postList.filter((post) => filterPosts(post));
   }
 
   var filteredPostList = useMemo(getFilteredPosts, [
