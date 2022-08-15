@@ -15,6 +15,8 @@ const gradients = [
   "from-red-200 via-red-300 to-yellow-200",
 ];
 const PostCard = (post: Post) => {
+  console.log("allah");
+  console.log(post);
   return (
     <div className="glass-block sm:min-w-post ml-20 max-w-2xl mb-4 px-1">
       <div className="lg:pl-4 lg:pr-4 p-1">
@@ -53,7 +55,7 @@ const PostCard = (post: Post) => {
         <p className="p-4 text-sm md:text-base lg:text-base">
           {post.node.excerpt}
         </p>
-        <div id="container" className="flex pl-2 pb-4 justify-end w-full">
+        <div className="flex pl-2 pb-4 justify-end w-full">
           <Link href={post.node.slug}>
             <button className="read-more glow-on-hover">
               <span className="circle" aria-hidden="true">
