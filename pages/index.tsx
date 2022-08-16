@@ -13,9 +13,9 @@ type HomeProps = {
   children: JSX.Element;
 };
 
-const Home: NextPage = ({ posts }: HomeProps) => {
+const Home: NextPage<HomeProps> = (posts ) => {
   const [postList, setPostList] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState();
+  const [selectedCategory, setSelectedCategory] = useState<Category>();
 
   useEffect(() => {
     getQuery(postQuery).then((posts) => setPostList(posts));
@@ -24,9 +24,11 @@ const Home: NextPage = ({ posts }: HomeProps) => {
   function filterPosts(post: Post) {
     var filtered = false;
     post.node.categories.map((category) => {
-      if (category.name === selectedCategory.name) {
-        filtered = true;
-        return;
+      if (selectedCategory != undefined) {
+        if (category.name === selectedCategory.name) {
+          filtered = true;
+          return;
+        }
       }
     });
     return filtered;

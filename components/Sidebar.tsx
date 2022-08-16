@@ -62,7 +62,7 @@ const Sidebar = () => {
     <div id={uuidv4()} className="sticky self-start top-16">
       <aside className="pr-10">
         <div className="py-4 px-3">
-          <ul className="space-y-2">
+          <ul id={uuidv4()} className="space-y-2">
             {sidebarMenu.map((sidebarItem: SidebarProps) => {
               return (
                 <li id={uuidv4()}>

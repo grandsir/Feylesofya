@@ -8,6 +8,7 @@ import { categoryQuery } from "../services/query";
 import { shuffle } from "../scripts";
 
 import { v4 as uuidv4 } from "uuid";
+
 const gradients = shuffle([
   "from-pink-500 to-orange-400",
   "from-purple-500 to-pink-500",
@@ -18,16 +19,14 @@ const gradients = shuffle([
   "from-red-200 via-red-300 to-yellow-200",
 ]);
 
-//@ts-ignore
 const PostCard = (post: Post) => {
-  const [gradient, setGradient] = useState(new Object());
+  const [gradient, setGradient] = useState<Map<string, string>>(new Map<string, string>());
 
   useEffect(() => {
     getCategories(categoryQuery).then((categories) => {
-      var gradientDictionary = new Object();
+      var gradientDictionary = new Map<string, string>();
       categories.map((category: Category, index: number) => {
-        //@ts-ignore
-        gradientDictionary[category.slug] = gradients[index % gradients.length];
+        gradientDictionary.set(category.slug, gradients[index % gradients.length])
       });
       setGradient(gradientDictionary);
     });
@@ -48,9 +47,9 @@ const PostCard = (post: Post) => {
             <div className="absolute bottom-0 left-0">
               {post.node.categories.map((category, index) => (
                 <div
-                  id={uuidv4()}
+                  id={category.slug}
                   className={`max-w-40 cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${
-                    gradient[category.slug]
+                    gradient.get(category.slug)
                   }`}
                 >
                   <Link href={`/kategori/${category.slug}`}>
