@@ -58,8 +58,8 @@ const sidebarMenu: SidebarProps[] = [
 
 const Sidebar = () => {
   return (
-    <div className="sticky self-start top-16">
-      <aside className="pr-10">
+    <div className="hidden menu_disappear:block sticky self-start top-16 cg_single:ml-20">
+      <aside className="">
         <div className="py-4 px-3">
           <ul className="space-y-2">
             {sidebarMenu.map((sidebarItem: SidebarProps) => {

@@ -19,12 +19,11 @@ const Home: NextPage<HomeProps> = (posts) => {
     getQuery(postQuery).then((posts) => setPostList(posts));
   }, []);
 
-
   function getFilteredPosts() {
     if (!selectedCategory) {
       return postList;
     }
-    return postList.filter((post : Post) => {
+    return postList.filter((post: Post) => {
       var filtered = false;
       post.node.categories.map((category) => {
         if (selectedCategory != undefined) {
@@ -49,7 +48,7 @@ const Home: NextPage<HomeProps> = (posts) => {
   }
 
   return (
-    <div className="flex self-start container px-10 h-max">
+    <div className=" self-start h-max w-full">
       <Head>
         <link
           rel="stylesheet"
@@ -63,7 +62,7 @@ const Home: NextPage<HomeProps> = (posts) => {
       </Head>
       <div className="flex self-start mt-9 min-h-screen">
         <Sidebar></Sidebar>
-        <div className="lg:col-span-8 col-span-1">
+        <div className="grow lg:col-span-8 col-span-1">
           {filteredPostList.map((post: Post) => (
             <PostCard {...post}></PostCard>
           ))}

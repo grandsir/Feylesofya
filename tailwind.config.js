@@ -23,6 +23,13 @@ module.exports = {
         'post': "45rem"
       }
     },
+    screens: {
+      'cg': '1500px',
+      'cg_single': '1356px',
+      'cg_disappear': '1232px',
+      'menu_disappear': '941px',
+      'cg_post_disappear': '540px'
+    }
   },
   plugins: [
     require('flowbite/plugin'),

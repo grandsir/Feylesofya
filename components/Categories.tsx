@@ -7,33 +7,26 @@ interface CategoryProps {
   changeCategory: (category: Category) => void;
 }
 
-
 const Categories = ({ changeCategory }: CategoryProps) => {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    getCategories(categoryQuery).then((newCategories : Category[]) =>
-    {
-    var sortedCategories = newCategories.sort(function (l, r) {
-      return r.timesClicked - l.timesClicked;
-    }).slice(0, 6)
+    getCategories(categoryQuery).then((newCategories: Category[]) => {
+      var sortedCategories = newCategories
+        .sort(function (l, r) {
+          return r.timesClicked - l.timesClicked;
+        })
+        .slice(0, 6);
 
-      setCategories(sortedCategories)
-    }
-    );
+      setCategories(sortedCategories);
+    });
   }, []);
   return (
-    <div
-      className="sticky self-start top-24 justify-center align-middle text-center"
-    >
-      <span
-        className="font-category_title text-white category-text ml-36 mt-8 pb-2 border-b border-[#0096FF] text-bold text-3xl align-middle text-center justify-center"
-      >
+    <div className="hidden cg_disappear:block sticky self-start top-24 justify-center align-center items-center text-center flex-col cg:mr-20">
+      <span className="font-category_title text-white category-text pb-2 border-b border-[#0096FF] text-bold text-3xl text-center">
         Popüler Kategoriler
       </span>
-      <div
-        className="grid grid-cols-2 mt-12 ml-24 gap-x-20 gap-y-0"
-      >
+      <div className="grid grid-cols-1 cg_single:grid-cols-2 mt-12 gap-y-0 gap-x-0">
         {categories.map((category) => (
           <div className="mt-6 category-container">
             <div className="category-card">
@@ -43,7 +36,8 @@ const Categories = ({ changeCategory }: CategoryProps) => {
                     <img
                       src={category.iconPath}
                       className="content-image object-contain h-20 w-20 mx-auto"
-                    alt={category.name}></img>
+                      alt={category.name}
+                    ></img>
                     <h3>{category.name}</h3>
                   </div>
                 </div>

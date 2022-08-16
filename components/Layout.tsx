@@ -8,7 +8,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Header />
-      <div className="sticky top-0">{children}</div>
+      {children}
     </>
   );
 };
