@@ -7,29 +7,7 @@ import {feylesofQuery, getCategories, getFeylesof} from "../services";
 import {shuffle} from "../scripts";
 import {categoryQuery} from "../services/query";
 
-const gradients = [
-  "from-pink-500 to-orange-400",
-  "from-purple-500 to-pink-500",
-  "from-green-400 to-blue-600",
-  "from-cyan-500 to-blue-500",
-  "from-purple-600 to-blue-500",
-  "from-teal-300 to-lime-300",
-  "from-red-200 via-red-300 to-yellow-200",
-];
-
 const PostCard = (post: Post) => {
-
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    getCategories(categoryQuery).then((newCategories) =>
-        setCategories(newCategories)
-    );
-  }, []);
-
-
-
-  const shuffledGradients = shuffle(gradients)
   return (
     <div className="glass-block sm:min-w-post ml-20 max-w-2xl mb-4 px-1">
       <div className="lg:pl-4 lg:pr-4 p-1">

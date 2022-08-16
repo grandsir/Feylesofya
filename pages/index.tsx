@@ -4,15 +4,38 @@ import Head from "next/head";
 import {Categories, PostCard} from "../components";
 import {Category, Post} from "../components/Models";
 import Sidebar from "../components/Sidebar";
-import {getQuery, postQuery} from "../services";
+import {getCategories, getQuery, postQuery} from "../services";
+import {categoryQuery} from "../services/query";
+import {shuffle} from "../scripts";
 
 type HomeProps = {
   posts: Post[];
   children: JSX.Element;
 };
 
+const gradients = [
+  "from-pink-500 to-orange-400",
+  "from-purple-500 to-pink-500",
+  "from-green-400 to-blue-600",
+  "from-cyan-500 to-blue-500",
+  "from-purple-600 to-blue-500",
+  "from-teal-300 to-lime-300",
+  "from-red-200 via-red-300 to-yellow-200",
+];
+
 // @ts-ignore
 const Home: NextPage = ({ posts }: HomeProps) => {
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getCategories(categoryQuery).then((newCategories) =>
+        setCategories(newCategories)
+    );
+  }, []);
+
+  const shuffledGradients = shuffle(gradients)
+
   const [postList, setPostList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState();
 
