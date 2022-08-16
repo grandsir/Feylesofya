@@ -1,13 +1,37 @@
 import "flowbite-react";
-import React, {useEffect, useState} from "react";
-import { Post, toLocalizedAuthor } from "./Models";
+import React, { useEffect, useState } from "react";
+import { Category, Post, toLocalizedAuthor } from "./Models";
 import moment from "moment";
 import Link from "next/link";
-import {feylesofQuery, getCategories, getFeylesof} from "../services";
-import {shuffle} from "../scripts";
-import {categoryQuery} from "../services/query";
+import { feylesofQuery, getCategories, getFeylesof } from "../services";
+import { categoryQuery } from "../services/query";
+import { shuffle } from "../scripts";
 
+import { v4 as uuidv4 } from "uuid";
+const gradients = shuffle([
+  "from-pink-500 to-orange-400",
+  "from-purple-500 to-pink-500",
+  "from-green-400 to-blue-600",
+  "from-cyan-500 to-blue-500",
+  "from-purple-600 to-blue-500",
+  "from-teal-300 to-lime-300",
+  "from-red-200 via-red-300 to-yellow-200",
+]);
+
+//@ts-ignore
 const PostCard = (post: Post) => {
+  const [gradient, setGradient] = useState(new Object());
+
+  useEffect(() => {
+    getCategories(categoryQuery).then((categories) => {
+      var gradientDictionary = new Object();
+      categories.map((category: Category, index: number) => {
+        //@ts-ignore
+        gradientDictionary[category.slug] = gradients[index % gradients.length];
+      });
+      setGradient(gradientDictionary);
+    });
+  }, []);
   return (
     <div className="glass-block sm:min-w-post ml-20 max-w-2xl mb-4 px-1">
       <div className="lg:pl-4 lg:pr-4 p-1">
@@ -22,10 +46,13 @@ const PostCard = (post: Post) => {
           />
           <div className="relative ml-2">
             <div className="absolute bottom-0 left-0">
-              {
-                post.node.categories.map((category, index) => (
-                  <div
-                  className={`max-w-40 cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${shuffledGradients[index]}`}>
+              {post.node.categories.map((category, index) => (
+                <div
+                  id={uuidv4()}
+                  className={`max-w-40 cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${
+                    gradient[category.slug]
+                  }`}
+                >
                   <Link href={`/kategori/${category.slug}`}>
                     <span className="category">
                       <span className="transition-all ease-in duration-75 shadow-2xl rounded-full font-semibold ">
@@ -34,9 +61,7 @@ const PostCard = (post: Post) => {
                     </span>
                   </Link>
                 </div>
-                ))
-              }
-
+              ))}
             </div>
           </div>
         </div>
@@ -60,7 +85,7 @@ const PostCard = (post: Post) => {
       <hr></hr>
       <div className="hidden sm:flex justify-between md:justify-left lg:mb-3 w-full rounded-b-lg px-5 pt-3 lg:p-5">
         {post.node.feylesoflar.map((feylesof, index) => (
-          <div>
+          <div id={uuidv4()}>
             <Link
               href={{
                 pathname: "/feylesof/[slug]",

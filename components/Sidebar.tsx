@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 type SidebarProps = {
   name: string;
@@ -58,13 +59,13 @@ const sidebarMenu: SidebarProps[] = [
 
 const Sidebar = () => {
   return (
-    <div className="sticky self-start top-16">
+    <div id={uuidv4()} className="sticky self-start top-16">
       <aside className="pr-10">
         <div className="py-4 px-3">
           <ul className="space-y-2">
             {sidebarMenu.map((sidebarItem: SidebarProps) => {
               return (
-                <li>
+                <li id={uuidv4()}>
                   <a
                     href={sidebarItem.slug}
                     className="flex items-center p-2 text-base font-normal text-gray-50 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-black"
