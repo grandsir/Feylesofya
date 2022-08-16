@@ -24,11 +24,16 @@ module.exports = {
       }
     },
     screens: {
-      'cg': '1500px',
-      'cg_single': '1356px',
-      'cg_disappear': '1232px',
+      'cg_post_disappear': '540px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
       'menu_disappear': '941px',
-      'cg_post_disappear': '540px'
+      'cg_disappear': '1232px',
+      'xl': '1280px',
+      'cg_single': '1356px',
+      'cg': '1500px',
+      '2xl': '1536px',
     }
   },
   plugins: [

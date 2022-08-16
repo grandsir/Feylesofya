@@ -85,7 +85,7 @@ const PostCard = (post: Post) => {
           </div>
         </div>
         <hr></hr>
-        <div className="hidden sm:flex justify-between md:justify-left lg:mb-3 w-full rounded-b-lg px-5 pt-3 lg:p-5">
+        <div className="sm:flex justify-between md:justify-left lg:mb-3 w-full rounded-b-lg px-5 pt-3 lg:p-5">
           {post.node.feylesoflar.map((feylesof, index) => (
             <div>
               <Link
@@ -99,7 +99,7 @@ const PostCard = (post: Post) => {
                     alt={feylesof.bio}
                     width="50"
                     height="50"
-                    className="align-middle max-h-sm hidden sm:block rounded-full mb-4 lg:mb-0 mr-4"
+                    className="align-middle max-h-sm sm:block rounded-full mb-4 lg:mb-0 mr-4"
                     src={feylesof.photo.url}
                   />
                   <p className="flex flex-col">
