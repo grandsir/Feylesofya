@@ -1,13 +1,10 @@
 import "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { Category, Post, toLocalizedAuthor } from "./Models";
-import moment from "moment";
 import Link from "next/link";
-import { feylesofQuery, getCategories, getFeylesof } from "../services";
+import { getCategories } from "../services";
 import { categoryQuery } from "../services/query";
 import { shuffle } from "../scripts";
-
-import { v4 as uuidv4 } from "uuid";
 
 const gradients = shuffle([
   "from-pink-500 to-orange-400",
@@ -24,7 +21,7 @@ const PostCard = (post: Post) => {
 
   useEffect(() => {
     getCategories(categoryQuery).then((categories) => {
-      var gradientDictionary = new Map<string, string>();
+      const gradientDictionary = new Map<string, string>();
       categories.map((category: Category, index: number) => {
         gradientDictionary.set(category.slug, gradients[index % gradients.length])
       });
@@ -32,7 +29,7 @@ const PostCard = (post: Post) => {
     });
   }, []);
   return (
-    <div className="glass-block sm:min-w-post ml-20 max-w-2xl mb-4 px-1">
+    <div className="post-card sm:min-w-post ml-20 max-w-2xl mb-4 px-1">
       <div className="lg:pl-4 lg:pr-4 p-1">
         <div className="flex justify-between text-sm pt-2 px-1">
           <div className="text-sm"></div>
@@ -45,7 +42,7 @@ const PostCard = (post: Post) => {
           />
           <div className="relative ml-2">
             <div className="absolute bottom-0 left-0">
-              {post.node.categories.map((category, index) => (
+              {post.node.categories.map((category) => (
                 <div
                   id={category.slug}
                   className={`max-w-40 cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${
@@ -84,7 +81,7 @@ const PostCard = (post: Post) => {
       <hr></hr>
       <div className="hidden sm:flex justify-between md:justify-left lg:mb-3 w-full rounded-b-lg px-5 pt-3 lg:p-5">
         {post.node.feylesoflar.map((feylesof, index) => (
-          <div id={uuidv4()}>
+          <div>
             <Link
               href={{
                 pathname: "/feylesof/[slug]",

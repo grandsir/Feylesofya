@@ -14,6 +14,8 @@ export async function getStaticPaths() {
   }
 }
 
+
+//@ts-ignore
 export async function getStaticProps(context) {
   const { params } = context
   const feylesof = (await getFeylesofBySlug(getFeylesofBySlugQuery, params));
@@ -26,7 +28,7 @@ export async function getStaticProps(context) {
 export default function FeylesofPage(feylesof){
   return (
       <div>
-        <img src={ feylesof.photo.url }/>
+        <img src={ feylesof.photo.url } alt={feylesof.name}/>
         <h1>{feylesof.name}</h1>
       </div>
   );

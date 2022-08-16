@@ -13,7 +13,7 @@ export type Category = {
     timesClicked: number;
 }
 
-export type FeylesofNode = {
+type FeylesofNode = {
     bio: string;
     id: string;
     slug: string;
@@ -29,7 +29,7 @@ type PostNode = {
     featuredImage: featuredImage;
     slug: string;
     categories: Category[];
-    feylesoflar: Feylesof[];
+    feylesoflar: FeylesofNode[];
     roles: string[];
 }
 
@@ -41,7 +41,7 @@ type Photo = {
     url: string;
 }
 
-var AuthorRole = { 
+const AuthorRole = {
     "lead" : "Yazar",
     "second" : "İkinci Yazar", 
     "collabrative" : "Ortak Yazar",

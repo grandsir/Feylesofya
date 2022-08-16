@@ -13,7 +13,7 @@ const Feylesof: NextPage = ({feylesoflar}: FeylesofProps) => {
   return (
     <div>
       {feylesoflar.map(feylesof => (
-        <Link href={'/feylesof/' + feylesof.slug} key={feylesof.slug}>
+        <Link href={'/feylesof/' + feylesof.node.slug} key={feylesof.node.slug}>
         </Link>
       ))}
     </div>

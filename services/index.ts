@@ -1,4 +1,5 @@
-import { request, gql } from 'graphql-request'
+import {gql, request} from 'graphql-request'
+
 export { postQuery, feylesofQuery } from './query'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
@@ -27,9 +28,7 @@ export async function getFeylesofBySlug(query:string, variables:string) {
 export async function getCategories(query:string) {
     const q = gql`${query}`
     const result = await request(graphqlAPI ?? "", q);
-    const categories = result.categories;
-    console.log(categories)
-    return categories
+    return result.categories
 }
 
 

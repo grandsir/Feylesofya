@@ -4,16 +4,14 @@ import Head from "next/head";
 import { Categories, PostCard } from "../components";
 import { Category, Post } from "../components/Models";
 import Sidebar from "../components/Sidebar";
-import { getCategories, getQuery, postQuery } from "../services";
-import { categoryQuery } from "../services/query";
-import { shuffle } from "../scripts";
+import { getQuery, postQuery } from "../services";
 
 type HomeProps = {
   posts: Post[];
   children: JSX.Element;
 };
 
-const Home: NextPage<HomeProps> = (posts ) => {
+const Home: NextPage<HomeProps> = (posts) => {
   const [postList, setPostList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState<Category>();
 
@@ -21,24 +19,23 @@ const Home: NextPage<HomeProps> = (posts ) => {
     getQuery(postQuery).then((posts) => setPostList(posts));
   }, []);
 
-  function filterPosts(post: Post) {
-    var filtered = false;
-    post.node.categories.map((category) => {
-      if (selectedCategory != undefined) {
-        if (category.name === selectedCategory.name) {
-          filtered = true;
-          return;
-        }
-      }
-    });
-    return filtered;
-  }
 
   function getFilteredPosts() {
     if (!selectedCategory) {
       return postList;
     }
-    return postList.filter((post) => filterPosts(post));
+    return postList.filter((post : Post) => {
+      var filtered = false;
+      post.node.categories.map((category) => {
+        if (selectedCategory != undefined) {
+          if (category.name === selectedCategory.name) {
+            filtered = true;
+            return;
+          }
+        }
+      });
+      return filtered;
+    });
   }
 
   var filteredPostList = useMemo(getFilteredPosts, [

@@ -47,6 +47,16 @@
   -webkit-backdrop-filter: blur( 4px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+.post-card {
+  align-items: center;
+  border-radius: 30px;
+  background-color: hsla(0, 0%, 100%, 0.01);
+  background-image: url("https://assets.website-files.com/62e26399b003f3f468e76296/62e265f7e132570282780f64_noise.png");
+  background-position: 50% 50%;
+  background-size: 25%;
+  box-shadow: inset 0 4px 12px -8px hsla(0, 0%, 100%, 0.5), inset 0 7px 11px -4px hsla(0, 0%, 100%, 0.25), inset 0 4px 18px 0 rgba(154, 146, 210, 0.3), inset 0 1px 40px 0 rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
 
 .glass-block {
   align-items: center;
@@ -69,7 +79,6 @@ body {
 
   &:before{
     content:'';
-    content: "";
     width: 100%;
     height: 100%;
     //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
@@ -86,7 +95,7 @@ body {
 }
 
 .text-shadow{
-  text-shadow: 0px 2px 0px rgb(0 0 0 / 30%);
+  text-shadow: 0 2px 0 rgb(0 0 0 / 30%);
 }
 
 .adjacent-post{
@@ -318,7 +327,7 @@ button {
 
 .category-container .category-card .face.face1{
   background: rgba( 0, 0, 0, 0.35 );
-  position: relative; 
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -329,12 +338,8 @@ button {
 }
 
 .category-container .category-card:hover .face.face1 {
-  box-shadow:
-    inset 0 0 60px whitesmoke,
-    inset 20px 0 80px #fff,
-    inset -20px 0 80px #fff,
-    inset 20px 0 300px #fff,
-    inset -20px 0 300px #fff,
+    background: white;
+     box-shadow:
     0 0 15px #fff,
     -3px 0 15px #fff,
     3px 0 15px #0ff;

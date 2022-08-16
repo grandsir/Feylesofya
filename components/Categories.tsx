@@ -2,56 +2,48 @@ import React, { useEffect, useState } from "react";
 import { getCategories } from "../services";
 import { categoryQuery } from "../services/query";
 import { Category } from "./Models";
-import { v4 as uuidv4 } from "uuid";
 
 interface CategoryProps {
   changeCategory: (category: Category) => void;
 }
 
-//@ts-ignore
+
 const Categories = ({ changeCategory }: CategoryProps) => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    getCategories(categoryQuery).then((newCategories) =>
-      setCategories(newCategories)
+    getCategories(categoryQuery).then((newCategories : Category[]) =>
+    {
+    var sortedCategories = newCategories.sort(function (l, r) {
+      return r.timesClicked - l.timesClicked;
+    }).slice(0, 6)
+
+      setCategories(sortedCategories)
+    }
     );
   }, []);
-
-  const sortedCategories = React.useMemo(
-    () =>
-      categories
-        .sort(function (l, r) {
-          return r.timesClicked - l.timesClicked;
-        })
-        .slice(0, 6),
-    []
-  );
   return (
     <div
-      id={uuidv4()}
       className="sticky self-start top-24 justify-center align-middle text-center"
     >
       <span
-        id={uuidv4()}
         className="font-category_title text-white category-text ml-36 mt-8 pb-2 border-b border-[#0096FF] text-bold text-3xl align-middle text-center justify-center"
       >
         Popüler Kategoriler
       </span>
       <div
-        id={uuidv4()}
         className="grid grid-cols-2 mt-12 ml-24 gap-x-20 gap-y-0"
       >
-        {sortedCategories.map((category) => (
-          <div id={uuidv4()} className="mt-6 category-container">
-            <div id={uuidv4()} className="category-card">
-              <button id={uuidv4()} onClick={() => changeCategory(category)}>
+        {categories.map((category) => (
+          <div className="mt-6 category-container">
+            <div className="category-card">
+              <button onClick={() => changeCategory(category)}>
                 <div className="face face1">
                   <div className="content align-middle justify-center items-center">
                     <img
                       src={category.iconPath}
                       className="content-image object-contain h-20 w-20 mx-auto"
-                    ></img>
+                    alt={category.name}></img>
                     <h3>{category.name}</h3>
                   </div>
                 </div>
@@ -64,30 +56,47 @@ const Categories = ({ changeCategory }: CategoryProps) => {
   );
 };
 
-// var categories = [
+// var categories : Category[] = [
 //   {
 //     name: "Varlık Felsefesi",
-//     svg: "../resources/ethics.svg",
+//     iconPath: "../resources/ethics.svg",
+//     slug: "asd",
+//     timesClicked:0
 //   },
 //   {
 //     name: "Ahlak Felsefesi",
-//     svg: "../resources/ethics.svg",
+//     iconPath: "../resources/ethics.svg",
+//     slug: "asd",
+//     timesClicked:0
+//
 //   },
 //   {
 //     name: "Mantık",
-//     svg: "../resources/logic.svg",
+//     iconPath: "../resources/logic.svg",
+//     slug: "asd",
+//     timesClicked:0
+//
 //   },
 //   {
 //     name: "Diyalog",
-//     svg: "../resources/ethics.svg",
+//     iconPath: "../resources/ethics.svg",
+//     slug: "asd",
+//     timesClicked:0
+//
 //   },
 //   {
 //     name: "Estetik",
-//     svg: "../resources/ethics.svg",
+//     iconPath: "../resources/ethics.svg",
+//     slug: "asd",
+//     timesClicked:0
+//
 //   },
 //   {
 //     name: "Epistemoloji",
-//     svg: "../resources/ethics.svg",
+//     iconPath: "../resources/ethics.svg",
+//     slug: "asd",
+//     timesClicked:0
+//
 //   },
 // ];
 export default Categories;
