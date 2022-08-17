@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {feylesofQuery, getFeylesof} from "../../services";
+import {getFeylesof} from "../../services";
 import {Feylesof} from "../../components/Models";
 import {NextPage} from "next";
 
@@ -15,7 +15,7 @@ const FeylesofRedirect: NextPage<Feylesof[]> = (feylesoflar) => {
 }
 
 export async function getStaticProps() {
-  const feylesofData = (await getFeylesof(feylesofQuery)) || [];
+  const feylesofData = (await getFeylesof()) || [];
 
   return {
     props: { feylesofData }

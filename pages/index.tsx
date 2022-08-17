@@ -4,7 +4,7 @@ import Head from "next/head";
 import { Categories, PostCard } from "../components";
 import { Category, Post } from "../components/Models";
 import Sidebar from "../components/Sidebar";
-import { getQuery, postQuery } from "../services";
+import { getQuery } from "../services";
 
 type HomeProps = {
   posts: Post[];
@@ -16,11 +16,11 @@ const Home: NextPage<HomeProps> = (posts) => {
   const [selectedCategory, setSelectedCategory] = useState<Category>();
 
   useEffect(() => {
-    getQuery(postQuery).then((posts) => setPostList(posts));
+    getQuery().then((posts) => setPostList(posts));
   }, []);
 
   function getFilteredPosts() {
-    if (!selectedCategory || selectedCategory == undefined) {
+    if (!selectedCategory) {
       return postList;
     }
     return postList.filter((post: Post) => {
@@ -43,7 +43,6 @@ const Home: NextPage<HomeProps> = (posts) => {
   ]);
 
   function changeCategory(category: Category | undefined) {
-    // @ts-ignore
     setSelectedCategory(category);
   }
 

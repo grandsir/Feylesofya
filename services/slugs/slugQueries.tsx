@@ -12,5 +12,29 @@ export const getFeylesofBySlugQuery = `
       }
   }
   `
+export const getPostBySlugQuery = `
+query GetPostContent($slug:String!) {
+  post(where: {slug: $slug}) {
+    title
+    roles
+    featuredPost
+    featuredImage {
+      url
+    }
+    feylesoflar {
+      bio
+      name
+      photo {
+        url
+      }
+      slug
+      feylesofType
+    }
+    content {
+      raw
+    }
+  }
+}
 
+`
 

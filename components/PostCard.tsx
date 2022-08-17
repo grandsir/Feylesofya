@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Category, Post, toLocalizedAuthor } from "./Models";
 import Link from "next/link";
 import { getCategories } from "../services";
-import { categoryQuery } from "../services/query";
 import { shuffle } from "../scripts";
 
 const gradients = shuffle([
@@ -22,7 +21,7 @@ const PostCard = (post: Post) => {
   );
 
   useEffect(() => {
-    getCategories(categoryQuery).then((categories) => {
+    getCategories().then((categories) => {
       const gradientDictionary = new Map<string, string>();
       categories.map((category: Category, index: number) => {
         gradientDictionary.set(
@@ -33,6 +32,7 @@ const PostCard = (post: Post) => {
       setGradient(gradientDictionary);
     });
   }, []);
+
   return (
     <div className="relative mx-auto">
       <div className="post-card sm:min-w-post max-w-2xl mb-4 mx-auto">
@@ -68,7 +68,10 @@ const PostCard = (post: Post) => {
             </div>
           </div>
           <h1 className="transition duration-100 text-center mb-4 cursor-pointer hover:text-blue-600 text-3xl font-semibold ">
-            <Link href={`/post/${post.node.slug}`}>{`${post.node.title}`}</Link>
+            <Link href={{
+              pathname: "/yazi/[slug]",
+              query: { slug: post.node.slug },
+            }}>{`${post.node.title}`}</Link>
           </h1>
           <p className="p-4 text-sm md:text-base lg:text-base">
             {post.node.excerpt}
