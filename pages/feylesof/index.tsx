@@ -1,15 +1,9 @@
 import Link from 'next/link'
-import {feylesofQuery, getFeylesof, getQuery} from "../../services";
+import {feylesofQuery, getFeylesof} from "../../services";
 import {Feylesof} from "../../components/Models";
 import {NextPage} from "next";
 
-type FeylesofProps = {
-  feylesoflar: Feylesof[];
-  children: JSX.Element
-}
-
-// @ts-ignore
-const Feylesof: NextPage = ({feylesoflar}: FeylesofProps) => {
+const FeylesofRedirect: NextPage<Feylesof[]> = (feylesoflar) => {
   return (
     <div>
       {feylesoflar.map(feylesof => (
@@ -28,4 +22,4 @@ export async function getStaticProps() {
   }
 }
 
-export default Feylesof;
+export default FeylesofRedirect;
