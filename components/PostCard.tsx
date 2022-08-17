@@ -51,7 +51,7 @@ const PostCard = (post: Post) => {
                 {post.node.categories.map((category) => (
                   <div
                     id={category.slug}
-                    className={`max-w-40 cursor-pointer hover:scale-105 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${gradient.get(
+                    className={`max-w-40 cursor-pointer hover:scale-110 transition duration-300 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${gradient.get(
                       category.slug
                     )}`}
                   >

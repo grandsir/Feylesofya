@@ -4,12 +4,25 @@ import { categoryQuery } from "../services/query";
 import { Category } from "./Models";
 
 interface CategoryProps {
-  changeCategory: (category: Category) => void;
+  changeCategory: (category: Category | undefined) => void;
 }
 
 const Categories = ({ changeCategory }: CategoryProps) => {
   const [categories, setCategories] = useState<Category[]>([]);
+  const [active, setActive] = useState("");
 
+  const handleClick = (slug: string, category: Category | undefined) => {
+    var categorySlug = slug;
+
+    if (slug === active) {
+      categorySlug = "";
+      category = undefined;
+    }
+    console.log(categorySlug);
+    console.log(category);
+    setActive(categorySlug);
+    changeCategory(category);
+  };
   useEffect(() => {
     getCategories(categoryQuery).then((newCategories: Category[]) => {
       var sortedCategories = newCategories
@@ -28,9 +41,14 @@ const Categories = ({ changeCategory }: CategoryProps) => {
       </span>
       <div className="grid grid-cols-1 cg_single:grid-cols-2 mt-12 gap-y-0 gap-x-0">
         {categories.map((category) => (
-          <div className="mt-6 category-container">
+          <div
+            id={category.slug}
+            className={`mt-6 ${
+              active === category.slug ? "active" : "category-container"
+            }`}
+          >
             <div className="category-card">
-              <button onClick={() => changeCategory(category)}>
+              <button onClick={() => handleClick(category.slug, category)}>
                 <div className="face face1">
                   <div className="content align-middle justify-center items-center">
                     <img

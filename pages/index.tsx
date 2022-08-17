@@ -20,7 +20,7 @@ const Home: NextPage<HomeProps> = (posts) => {
   }, []);
 
   function getFilteredPosts() {
-    if (!selectedCategory) {
+    if (!selectedCategory || selectedCategory == undefined) {
       return postList;
     }
     return postList.filter((post: Post) => {
@@ -42,13 +42,13 @@ const Home: NextPage<HomeProps> = (posts) => {
     postList,
   ]);
 
-  function changeCategory(category: Category) {
+  function changeCategory(category: Category | undefined) {
     // @ts-ignore
     setSelectedCategory(category);
   }
 
   return (
-    <div className=" self-start h-max w-full">
+    <div className="self-start h-max w-full">
       <Head>
         <link
           rel="stylesheet"

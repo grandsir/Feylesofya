@@ -334,16 +334,16 @@ button {
 
 .category-container .category-card:hover .face.face1 {
     background: white;
-     box-shadow:
+    box-shadow:
     0 0 15px #fff,
     -3px 0 15px #fff,
     3px 0 15px #0ff;
     cursor: pointer;
     border: none;
     color: black;
-}
-
-.content-image {
+    transform: scale(1.07);
+    transition: 0.4s;
+    z-index: 50;
 }
 
 .category-container .category-card:hover .face.face1 .content-image {
@@ -381,5 +381,52 @@ button {
 
 .category-text {
     box-shadow: 0 4px 6px -6px 	#0096FF;
+}
 
+.active {
+  background: #fff;
+  font-size: 1.4em;
+  box-shadow:
+  0 0 15px #fff,
+  -3px 0 15px #fff,
+  3px 0 15px #0ff;
+  cursor: pointer;
+  border: none;
+  color: black;
+  z-index: 50;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius: 10px;
+
+}
+
+.active .category-card .face{
+  width:200px;
+  height: 150px;
+  transition:.4s;
+}
+
+.active .category-card .face.face1{
+  opacity: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+
+.active .content-image {
+  filter: invert(1);
+}
+.active .category-card:hover .face.face1 h3, .active h3 {
+  transition: 0s;
+}
+
+
+.active .category-card:hover .face.face1 .content{
+  opacity: 1;
+}
+
+.active .category-card .face.face1 .content a{
+  transition: .5s;
 }
