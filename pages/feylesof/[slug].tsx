@@ -41,7 +41,7 @@ export default function FeylesofPage(feylesof){
   return (
       <main className="relative">
         <Lottie
-        style={{opacity: 0.4, position: "absolute", top: "1%", right: "0", filter: "hue-rotate(230deg); blur(88px)"}}
+        style={{opacity: 0.4, position: "absolute", top: "1%", right: "0", filter: "hue-rotate(230deg)"}}
 	    options={defaultOptions}
         height={700}
         width={700}
