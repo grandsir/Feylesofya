@@ -24,7 +24,7 @@ export async function getStaticProps(context) {
 
 //@ts-ignore
 export default function PostPage(post){
-  return (
+  return(
       <div>
         <h1>{post.title}</h1>
       </div>
