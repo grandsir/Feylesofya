@@ -78,7 +78,7 @@ const PostCard = (post: Post) => {
           </p>
           <div className="flex pl-2 pb-4 justify-end w-full">
             <Link href={post.node.slug}>
-              <button className="read-more glow-on-hover">
+              <button className="read-more glow-on-hove">
                 <span className="circle" aria-hidden="true">
                   <span className="icon arrow"></span>
                 </span>
