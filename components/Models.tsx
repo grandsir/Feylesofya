@@ -13,12 +13,13 @@ export type Category = {
     timesClicked: number;
 }
 
-type FeylesofNode = {
+export type FeylesofNode = {
     bio: string;
     id: string;
     slug: string;
     name: string;
     photo: Photo;
+    feylesofType: string;
     followers: Feylesof[]
     following: Feylesof[]
 }

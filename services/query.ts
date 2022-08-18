@@ -51,6 +51,12 @@ query FeylesofQuery {
           }
           slug
           feylesofType 
+          followers { 
+              nickname
+          }
+          following { 
+            nickname
+          }
         }
       }
     }

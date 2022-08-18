@@ -24,7 +24,7 @@ const Categories = ({ changeCategory }: CategoryProps) => {
     changeCategory(category);
   };
   useEffect(() => {
-    getCategories(categoryQuery).then((newCategories: Category[]) => {
+    getCategories().then((newCategories: Category[]) => {
       var sortedCategories = newCategories
         .sort(function (l, r) {
           return r.timesClicked - l.timesClicked;
