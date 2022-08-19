@@ -2,11 +2,17 @@ import { getFeylesof, getFeylesofBySlug } from "../../services";
 import { FeylesofCard, Stars } from "../../components";
 import Lottie from "react-lottie";
 import animationData from "../../public/resources/lotties/blobwline.json";
+import {GetStaticPaths, GetStaticProps} from "next";
+import { ParsedUrlQuery } from 'querystring'
+import {Feylesof} from "../../services/models";
 
-export async function getStaticPaths() {
-  const feylesofData = await getFeylesof();
+interface IParams extends ParsedUrlQuery {
+    slug: string
+}
 
-  // @ts-ignore
+export const getStaticPaths : GetStaticPaths = async() => {
+  const feylesofData = await getFeylesof() ?? [];
+
   const paths = feylesofData.map((feylesof) => ({
     params: { slug: feylesof.node.slug },
   }));
@@ -16,17 +22,14 @@ export async function getStaticPaths() {
   };
 }
 
-// @ts-ignore
-export async function getStaticProps(context) {
-  const { params } = context;
-  const feylesof = await getFeylesofBySlug(params);
+export const getStaticProps: GetStaticProps<Feylesof, IParams> = async(context) => {
+  const feylesof = await getFeylesofBySlug(context.params!);
   return {
-    props: feylesof,
+    props: feylesof!, // Force unwrapped only because that a non-existent user can't be redirected here because of the GetStaticPaths.
   };
 }
 
-// @ts-ignore
-export default function FeylesofPage(feylesof) {
+export default function FeylesofPage(feylesof : Feylesof) {
   const defaultOptions = {
     loop: true,
     autoplay: true,

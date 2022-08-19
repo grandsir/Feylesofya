@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import {getQuery} from "../../services";
-import {Post} from "../../components/Models";
+import {getPosts} from "../../services";
+import {Post} from "../../services/models";
 import {NextPage} from "next";
 
 
-const PostContent: NextPage<Post[]> = (posts) => {
+const PostContent: NextPage<[{node: Post}]> = (posts) => {
   return (
       <div>
         {posts.map(post => (
@@ -16,8 +16,7 @@ const PostContent: NextPage<Post[]> = (posts) => {
 };
 
 export async function getStaticProps() {
-  const posts = (await getQuery()) || [];
-
+  const posts = (await getPosts()) || [];
   return {
     props: { posts }
   }

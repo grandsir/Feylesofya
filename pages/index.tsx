@@ -2,9 +2,9 @@ import type { NextPage } from "next";
 import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import { Categories, PostCard } from "../components";
-import { Category, Post } from "../components/Models";
+import { Category, Post } from "../services/models";
 import Sidebar from "../components/Sidebar";
-import { getQuery } from "../services";
+import { getPosts } from "../services";
 
 type HomeProps = {
   posts: Post[];
@@ -12,18 +12,25 @@ type HomeProps = {
 };
 
 const Home: NextPage<HomeProps> = (posts) => {
-  const [postList, setPostList] = useState([]);
+  const [postList, setPostList] = useState<[{node: Post}] | []>([]);
   const [selectedCategory, setSelectedCategory] = useState<Category>();
 
   useEffect(() => {
-    getQuery().then((posts) => setPostList(posts));
+    getPosts().then((posts) => {
+      console.log(posts)
+
+      if (posts) {
+        setPostList(posts)
+        return
+      }
+    });
   }, []);
 
   function getFilteredPosts() {
     if (!selectedCategory) {
       return postList;
     }
-    return postList.filter((post: Post) => {
+    return postList.filter((post) => {
       var filtered = false;
       post.node.categories.map((category) => {
         if (selectedCategory != undefined) {
@@ -62,8 +69,9 @@ const Home: NextPage<HomeProps> = (posts) => {
       <div className="flex self-start mt-9 min-h-screen">
         <Sidebar></Sidebar>
         <div className="grow lg:col-span-8 col-span-1">
-          {filteredPostList.map((post: Post) => (
-            <PostCard {...post}></PostCard>
+          {
+            filteredPostList.map((post) => (
+            <PostCard {...post.node}></PostCard>
           ))}
         </div>
         <Categories changeCategory={changeCategory} />

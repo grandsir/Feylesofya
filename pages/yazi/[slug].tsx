@@ -1,29 +1,31 @@
-import {getPostBySlug, getQuery} from "../../services";
+import {getFeylesof, getFeylesofBySlug, getPostBySlug, getPosts} from "../../services";
+import {GetStaticPaths, GetStaticProps} from "next";
+import {Feylesof, Post} from "../../services/models";
+import {ParsedUrlQuery} from "querystring";
 
-export async function getStaticPaths() {
-  const postsData = (await getQuery());
+interface IParams extends ParsedUrlQuery {
+  slug: string
+}
 
-  // @ts-ignore
-  const paths = postsData.map(post => ({
-    params: { slug: post.node.slug },
-  }))
+export const getStaticPaths : GetStaticPaths = async() => {
+  const postsData = await getPosts() ?? [];
+
+  const paths = postsData.map((posts) => ({
+    params: { slug: posts.node.slug },
+  }));
   return {
     paths: paths,
     fallback: false,
-  }
+  };
 }
 
-//@ts-ignore
-export async function getStaticProps(context) {
-  const { params } = context
-  const post = (await getPostBySlug(params));
+export const getStaticProps: GetStaticProps<Post, IParams> = async(context) => {
+  const post = await getPostBySlug(context.params!);
   return {
-    props: post
-  }
+    props: post!
+  };
 }
-
-//@ts-ignore
-export default function PostPage(post){
+export default function PostPage(post : Post){
   return(
       <div>
         <h1>{post.title}</h1>

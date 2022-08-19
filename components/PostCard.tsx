@@ -1,6 +1,6 @@
 import "flowbite-react";
 import React, { useEffect, useState } from "react";
-import { Category, Post, toLocalizedAuthor } from "./Models";
+import { Category, Post, toLocalizedAuthor } from "../services/models";
 import Link from "next/link";
 import { getCategories } from "../services";
 import { shuffle } from "../scripts";
@@ -42,13 +42,13 @@ const PostCard = (post: Post) => {
           </div>
           <div className="grid justify-center relative mb-7 mt-3 mx-2 lg:mx-0 max-h-3xl min-w-img">
             <img
-              src={post.node.featuredImage.url}
-              alt={post.node.title}
+              src={post.featuredImage.url}
+              alt={post.title}
               className="mx-auto shadow-lg rounded-lg max-h-3xl min-w-img"
             />
             <div className="hidden cg_post_disappear:block relative ml-2">
               <div className="absolute bottom-0 left-0">
-                {post.node.categories.map((category) => (
+                {post.categories.map((category) => (
                   <div
                     id={category.slug}
                     className={`max-w-40 cursor-pointer hover:scale-110 transition duration-300 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${gradient.get(
@@ -71,15 +71,15 @@ const PostCard = (post: Post) => {
             <Link
               href={{
                 pathname: "/yazi/[slug]",
-                query: { slug: post.node.slug },
+                query: { slug: post.slug },
               }}
-            >{`${post.node.title}`}</Link>
+            >{`${post.title}`}</Link>
           </h1>
           <p className="p-4 text-sm md:text-base lg:text-base">
-            {post.node.excerpt}
+            {post.excerpt}
           </p>
           <div className="flex pl-2 pb-4 justify-end w-full">
-            <Link href={post.node.slug}>
+            <Link href={post.slug}>
               <button className="read-more glow-on-hover">
                 <span className="circle" aria-hidden="true">
                   <span className="icon arrow"></span>
@@ -91,7 +91,7 @@ const PostCard = (post: Post) => {
         </div>
         <hr></hr>
         <div className="sm:flex justify-between md:justify-left lg:mb-3 w-full rounded-b-lg px-5 pt-3 lg:p-5">
-          {post.node.feylesoflar.map((feylesof, index) => (
+          {post.feylesoflar.map((feylesof, index) => (
             <div>
               <Link
                 href={{
@@ -110,7 +110,7 @@ const PostCard = (post: Post) => {
                   <p className="flex flex-col">
                     <span className="font-semibold">{feylesof.name}</span>
                     <span className="text-left font-thin">
-                      {toLocalizedAuthor(post.node.roles[index])}
+                      {toLocalizedAuthor(post.roles[index])}
                     </span>
                   </p>
                 </div>

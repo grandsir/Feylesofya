@@ -1,7 +1,7 @@
-import { FeylesofNode } from "./Models";
+import { Feylesof } from "../services/models";
 import React from "react";
 
-const FeylesofCard = (feylesofInput: FeylesofNode) => {
+const FeylesofCard = (feylesofInput: Feylesof) => {
   return (
     <div className="w-full mx-auto flex">
       <div className="flex relative top-48 m-auto glass-block">

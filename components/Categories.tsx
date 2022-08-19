@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCategories } from "../services";
 import { categoryQuery } from "../services/query";
-import { Category } from "./Models";
+import { Category } from "../services/models";
 
 interface CategoryProps {
   changeCategory: (category: Category | undefined) => void;

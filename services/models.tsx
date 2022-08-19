@@ -1,9 +1,17 @@
-export type Post = {
-  node: PostNode;
+export type PostResultType = {
+  postsConnection: {
+    edges: [
+      { node: Post }
+    ]
+  }
 };
 
-export type Feylesof = {
-  node: FeylesofNode;
+export type FeylesofResultType = {
+  feylesoflarConnection: {
+    edges: [
+      { node: Feylesof }
+    ]
+  }
 };
 
 export type Category = {
@@ -13,7 +21,7 @@ export type Category = {
   timesClicked: number;
 };
 
-export type FeylesofNode = {
+export type Feylesof = {
   bio: string;
   id: string;
   slug: string;
@@ -24,13 +32,13 @@ export type FeylesofNode = {
   feylesofType: string;
 };
 
-export type PostNode = {
+export type Post = {
   title: string;
   excerpt: string;
   featuredImage: featuredImage;
   slug: string;
   categories: Category[];
-  feylesoflar: FeylesofNode[];
+  feylesoflar: Feylesof[];
   roles: string[];
 };
 

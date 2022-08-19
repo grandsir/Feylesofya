@@ -1,5 +1,5 @@
 import React from "react";
-import { Category } from "./Models";
+import { Category } from "../services/models";
 
 import Link from "next/link";
 

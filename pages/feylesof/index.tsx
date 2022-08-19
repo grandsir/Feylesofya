@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import {getFeylesof} from "../../services";
-import {Feylesof} from "../../components/Models";
+import {Feylesof} from "../../services/models";
 import {NextPage} from "next";
 
-const FeylesofRedirect: NextPage<Feylesof[]> = (feylesoflar) => {
+const FeylesofRedirect: NextPage<[{node: Feylesof}]> = (feylesoflar) => {
   return (
     <div>
       {feylesoflar.map(feylesof => (
