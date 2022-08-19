@@ -68,17 +68,19 @@ const PostCard = (post: Post) => {
             </div>
           </div>
           <h1 className="transition duration-100 text-center mb-4 cursor-pointer hover:text-blue-600 text-3xl font-semibold ">
-            <Link href={{
-              pathname: "/yazi/[slug]",
-              query: { slug: post.node.slug },
-            }}>{`${post.node.title}`}</Link>
+            <Link
+              href={{
+                pathname: "/yazi/[slug]",
+                query: { slug: post.node.slug },
+              }}
+            >{`${post.node.title}`}</Link>
           </h1>
           <p className="p-4 text-sm md:text-base lg:text-base">
             {post.node.excerpt}
           </p>
           <div className="flex pl-2 pb-4 justify-end w-full">
             <Link href={post.node.slug}>
-              <button className="read-more glow-on-hove">
+              <button className="read-more glow-on-hover">
                 <span className="circle" aria-hidden="true">
                   <span className="icon arrow"></span>
                 </span>
