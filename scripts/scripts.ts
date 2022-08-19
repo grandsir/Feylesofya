@@ -11,3 +11,17 @@ export function shuffle(array: any[]) {
 
     return array;
 }
+
+
+
+const AuthorRole = new Map<string, string>([
+    ["lead", "Yazar"],
+    ["second", "İkinci Yazar"],
+    ["collabrative", "Ortak Yazar"],
+    ["guest", "Misafir Yazar"],
+    ["editor", "Editör"],
+]);
+
+export function toLocalizedAuthor(arg: string): string {
+    return AuthorRole.get(arg)!;
+}

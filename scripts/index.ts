@@ -1,1 +1,1 @@
-export {shuffle} from "./scripts";
+export {shuffle, toLocalizedAuthor} from "./scripts";

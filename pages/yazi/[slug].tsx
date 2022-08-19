@@ -2,6 +2,7 @@ import {getFeylesof, getFeylesofBySlug, getPostBySlug, getPosts} from "../../ser
 import {GetStaticPaths, GetStaticProps} from "next";
 import {Feylesof, Post} from "../../services/models";
 import {ParsedUrlQuery} from "querystring";
+import PostDetail from "../../components/PostDetail";
 
 interface IParams extends ParsedUrlQuery {
   slug: string
@@ -25,10 +26,13 @@ export const getStaticProps: GetStaticProps<Post, IParams> = async(context) => {
     props: post!
   };
 }
+
+
+
 export default function PostPage(post : Post){
-  return(
+  return (
       <div>
-        <h1>{post.title}</h1>
+        <PostDetail {...post}></PostDetail>
       </div>
   );
 }

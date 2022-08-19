@@ -1,3 +1,5 @@
+import { RichTextContent } from '@graphcms/rich-text-types';
+
 export type PostResultType = {
   postsConnection: {
     edges: [
@@ -40,7 +42,17 @@ export type Post = {
   categories: Category[];
   feylesoflar: Feylesof[];
   roles: string[];
+  content : {
+    raw: RichTextContent
+  }
 };
+
+
+
+
+
+
+
 
 type featuredImage = {
   url: string;
@@ -49,15 +61,3 @@ type featuredImage = {
 type Photo = {
   url: string;
 };
-
-const AuthorRole = new Map<string, string>([
-  ["lead", "Yazar"],
-  ["second", "İkinci Yazar"],
-  ["collabrative", "Ortak Yazar"],
-  ["guest", "Misafir Yazar"],
-  ["editor", "Editör"],
-]);
-
-export function toLocalizedAuthor(arg: string): string {
-  return AuthorRole.get(arg)!;
-}

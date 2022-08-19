@@ -1,6 +1,6 @@
 import React from "react";
 
-const PostWidget = () => { 
+const PostWidget = () => {
     return ( 
         <div className="">
             <h1>PostWidget</h1>

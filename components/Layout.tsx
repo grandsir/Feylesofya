@@ -4,6 +4,7 @@ import { Header } from "./";
 type LayoutProps = {
   children: JSX.Element;
 };
+
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>

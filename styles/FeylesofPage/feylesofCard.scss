@@ -10,7 +10,6 @@ html {
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
   color: #324e63;
 }
 
@@ -19,6 +18,8 @@ a, a:hover {
 }
 
 .profile-card {
+  font-family: 'Quicksand', sans-serif;
+
   width: 100%;
   min-height: 460px;
   margin: auto;

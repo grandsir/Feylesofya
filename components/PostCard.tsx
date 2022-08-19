@@ -1,9 +1,9 @@
 import "flowbite-react";
 import React, { useEffect, useState } from "react";
-import { Category, Post, toLocalizedAuthor } from "../services/models";
+import { Category, Post } from "../services/models";
 import Link from "next/link";
 import { getCategories } from "../services";
-import { shuffle } from "../scripts";
+import { shuffle, toLocalizedAuthor } from "../scripts";
 
 const gradients = shuffle([
   "from-pink-500 to-orange-400",
@@ -79,7 +79,12 @@ const PostCard = (post: Post) => {
             {post.excerpt}
           </p>
           <div className="flex pl-2 pb-4 justify-end w-full">
-            <Link href={post.slug}>
+            <Link
+                href={{
+                  pathname: "/yazi/[slug]",
+                  query: { slug: post.slug },
+                }}
+            >
               <button className="read-more glow-on-hover">
                 <span className="circle" aria-hidden="true">
                   <span className="icon arrow"></span>
@@ -115,14 +120,6 @@ const PostCard = (post: Post) => {
                   </p>
                 </div>
               </Link>
-
-              <div
-                className="absolute bottom-12 z-50 hidden peer-hover:flex hover:flex
-              w-[200px]
-              flex-col bg-white drop-shadow-lg"
-              >
-                <p> ecem mükemmel birisi </p>
-              </div>
             </div>
           ))}
         </div>
