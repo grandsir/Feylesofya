@@ -67,7 +67,7 @@ const Sidebar = () => {
                 <li>
                   <a
                     href={sidebarItem.slug}
-                    className="flex items-center p-2 text-base font-normal text-gray-50 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-black"
+                    className="flex items-center p-2 text-base font-normal text-[#DBD8E3] rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-black"
                   >
                     <svg
                       aria-hidden="true"

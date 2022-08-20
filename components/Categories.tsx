@@ -36,7 +36,7 @@ const Categories = ({ changeCategory }: CategoryProps) => {
   }, []);
   return (
     <div className="hidden cg_disappear:block sticky self-start top-24 justify-center align-center items-center text-center flex-col cg:mr-20">
-      <span className="font-category_title text-white category-text pb-2 border-b border-[#0096FF] text-bold text-3xl text-center">
+      <span className="font-category_title text-[#DBD8E3] category-text pb-2 border-b border-[#0096FF] text-bold text-3xl text-center">
         Popüler Kategoriler
       </span>
       <div className="grid grid-cols-1 cg_single:grid-cols-2 mt-12 gap-y-0 gap-x-0">
