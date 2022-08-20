@@ -45,7 +45,24 @@ query FeylesofQuery {
       edges {
         node {
           name
+<<<<<<< Updated upstream:services/queries/query.ts
           registerDate
+=======
+          photo {
+            url
+          }
+          slug
+          feylesofType 
+          followers { 
+              nickname
+          }
+          following { 
+            nickname
+          }
+          comments {
+            name
+          }
+>>>>>>> Stashed changes:services/query.ts
         }
       }
     }
