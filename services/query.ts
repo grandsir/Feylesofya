@@ -30,6 +30,9 @@ query PostQuery {
           following { 
             nickname
           }
+          comments {
+            name
+          }
         }
       }
     }
@@ -56,6 +59,9 @@ query FeylesofQuery {
           }
           following { 
             nickname
+          }
+          comments {
+            name
           }
         }
       }

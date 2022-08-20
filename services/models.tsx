@@ -23,12 +23,20 @@ export type Category = {
   timesClicked: number;
 };
 
+export type Comments = {
+  name: string;
+  comment: string;
+  feylesof: Feylesof;
+};
+
 export type Feylesof = {
   bio: string;
   id: string;
   slug: string;
   name: string;
   photo: Photo;
+  posts: Post[];
+  comments: Comments[];
   followers: Feylesof[];
   following: Feylesof[];
   feylesofType: string;
