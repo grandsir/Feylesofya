@@ -6,15 +6,22 @@ import { getCategories } from "../services";
 import { shuffle, toLocalizedAuthor } from "../scripts";
 
 const gradients = shuffle([
-  "from-pink-500 to-orange-400",
-  "from-purple-500 to-pink-500",
-  "from-green-400 to-blue-600",
-  "from-cyan-500 to-blue-500",
-  "from-purple-600 to-blue-500",
-  "from-teal-300 to-lime-300",
-  "from-red-200 via-red-300 to-yellow-200",
+  "bg-gradient-to-br from-[#734b6d] to-[#2b173d] text-slate-100",
+  "bg-gradient-to-br from-[#4c719c] to-[#172640] text-slate-200",
+  "bg-gradient-to-br from-[#038f6c] to-[#013025] text-slate-200",
+  "bg-gradient-to-br from-[#555e69] to-[#181d24] text-slate-200",
+  "bg-gradient-to-br from-[#7a1625] to-[#360b0f] text-slate-200",
+  "bg-gradient-to-br from-[#bf7f3f] to-[#5e2717] text-slate-200",
+
 ]);
 
+//  "bg-gradient-to-br from-[#ffffff] to-[#19547b] text-gray-800",
+// "bg-gradient-to-br from-purple-500 to-pink-500 text-gray-800",
+// "bg-gradient-to-br from-green-400 to-blue-600 text-gray-800",
+// "bg-gradient-to-br from-cyan-500 to-blue-500 text-gray-800",
+// "bg-gradient-to-br from-purple-600 to-blue-500 text-gray-800",
+// "bg-gradient-to-br from-teal-300 to-lime-300 text-gray-800",
+// "bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 text-gray-800",
 const PostCard = (post: Post) => {
   const [gradient, setGradient] = useState<Map<string, string>>(
     new Map<string, string>()
@@ -51,13 +58,13 @@ const PostCard = (post: Post) => {
                 {post.categories.map((category) => (
                   <div
                     id={category.slug}
-                    className={`max-w-40 cursor-pointer hover:scale-110 transition duration-300 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium text-gray-800 rounded-full group bg-gradient-to-br ${gradient.get(
+                    className={`max-w-40 cursor-pointer hover:scale-110 transition duration-300 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium rounded-full group ${gradient.get(
                       category.slug
                     )}`}
                   >
                     <Link href={`/kategori/${category.slug}`}>
                       <span className="category">
-                        <span className="transition-all ease-in duration-75 shadow-2xl rounded-full font-semibold ">
+                        <span className="transition-all ease-in duration-75 shadow-3xl rounded-full font-semibold ">
                           {category.name}
                         </span>
                       </span>
@@ -67,7 +74,7 @@ const PostCard = (post: Post) => {
               </div>
             </div>
           </div>
-          <h1 className="transition duration-100 text-center mb-4 cursor-pointer hover:text-blue-600 text-3xl font-semibold ">
+          <h1 className="transition duration-100 text-center mb-4 cursor-pointer hover:text-indigo-600 text-3xl font-semibold ">
             <Link
               href={{
                 pathname: "/yazi/[slug]",
@@ -94,8 +101,8 @@ const PostCard = (post: Post) => {
             </Link>
           </div>
         </div>
-        <hr></hr>
-        <div className="sm:flex justify-between md:justify-left lg:mb-3 w-full rounded-b-lg px-5 pt-3 lg:p-5">
+        <hr className={"border-gray-700 opacity-50"}></hr>
+        <div className="sm:flex justify-between md:justify-left lg:mb-3 w-fullrounded-b-lg px-5 pt-3 lg:p-5">
           {post.feylesoflar.map((feylesof, index) => (
             <div>
               <Link
@@ -109,11 +116,11 @@ const PostCard = (post: Post) => {
                     alt={feylesof.bio}
                     width="50"
                     height="50"
-                    className="align-middle max-h-sm sm:block rounded-full mb-4 lg:mb-0 mr-4"
+                    className="align-middle max-h-sm sm:block rounded-full shadow-2xl mb-4 lg:mb-0 mr-4"
                     src={feylesof.photo.url}
                   />
                   <p className="flex flex-col">
-                    <span className="font-semibold">{feylesof.name}</span>
+                    <span className="font-semibold hover:text-indigo-500">{feylesof.name}</span>
                     <span className="text-left font-thin">
                       {toLocalizedAuthor(post.roles[index])}
                     </span>
