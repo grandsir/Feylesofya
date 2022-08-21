@@ -48,7 +48,7 @@ const PostCard = (post: Post) => {
           <div className="flex justify-between text-sm px-1">
             <div className="text-sm"></div>
           </div>
-          <div className="grid justify-center relative mb-7 lg:mx-0 max-h-3xl min-w-img">
+          <div className="grid justify-center relative mb-7 lg:mx-0 max-h-3xl min-w-img font-bold">
             <img
               src={post.featuredImage.url}
               alt={post.title}
