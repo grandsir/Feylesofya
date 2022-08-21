@@ -31,10 +31,8 @@ const PostDetail = ( post : Post) => {
                                     src={feylesof.photo.url}
                                 />
                                 <p className="flex flex-col">
-                                    <span className="font-semibold">{feylesof.name}</span>
-                                    <span className="text-left font-thin">
-              {toLocalizedAuthor(post.roles[index])}
-            </span>
+                                    <span className="font-semibold hover:text-indigo-500">{feylesof.name}</span>
+                                    <span className="text-left font-thin"> {toLocalizedAuthor(post.roles[index])}</span>
                                 </p>
                             </div>
                         </Link>
@@ -54,11 +52,11 @@ const PostDetail = ( post : Post) => {
                         img: ({ src, altText, height, width }) =>
                             <div className = "my-8 ">
                                 <Image className= "shadow-2xl rounded-xl"
-                                       src={src ?? ""}
-                                       alt={altText}
-                                       height={height}
-                                       width={width}
-                                       objectFit="cover"
+                                  src={src ?? ""}
+                                  alt={altText}
+                                  height={height}
+                                  width={width}
+                                  objectFit="cover"
                                 />
                             </div>,
                         ul: ( {children}) => <ul className = "space-y-4 max-w-md list-disc list-inside marker:text-yellow-500 mt-8"> { children }</ul>,
