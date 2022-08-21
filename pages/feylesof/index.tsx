@@ -1,8 +1,9 @@
+import React from 'react';
+
 import Link from 'next/link'
 import {getFeylesof} from "../../services";
 import {Feylesof} from "../../services/models";
 import {NextPage} from "next";
-import React from 'react';
 
 const FeylesofRedirect: NextPage<[{node: Feylesof}]> = (feylesoflar) => {
   return (
