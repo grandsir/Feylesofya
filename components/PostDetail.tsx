@@ -10,11 +10,11 @@ import Image from 'next/image';
 const PostDetail = ( post : Post) => {
   return (
       <div>
-      <h1 className="mb-8 text-7xl text-center bg-gradient-to-br from-[#038f6c] to-[#013025] text-slate-200 font-thin w-full py-16 align-middle justify-center my-auto">{post.title}</h1>
-      <div className="text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 bg-none selection:bg-emerald-800">
+      <h1 className="text-7xl text-center bg-gradient-to-br from-[#038f6c] to-[#013025] text-slate-200 font-thin w-full py-16 align-middle justify-center my-auto">{post.title}</h1>
+      <div className="text-white shadow-lg rounded-lg lg:p-4 pb-12 mb-8 bg-none selection:bg-emerald-800">
         <div className="max-w-3xl mx-auto">
           <div className="px-4 lg:px-0 mx-auto">
-            {/*<div className="sm:flex justify-between mx-auto gap-x-10 md:justify-left w-full rounded-b-lg px-5 pt-3 lg:p-5">
+            <div className="sm:flex justify-between mx-auto gap-x-10 md:justify-left w-full rounded-b-lg px-5 pt-3 lg:p-5 ">
                 {post.feylesoflar.map((feylesof, index) => (
                     <div>
                         <Link
@@ -40,18 +40,18 @@ const PostDetail = ( post : Post) => {
                     </div>
                 ))}
             </div>
-            <hr className='mb-4 border-gray-700'></hr>*/}
+            <hr className='mb-4 border-gray-700'></hr>
             {/*<img src={post.featuredImage.url} alt="" className="mx-auto object-top h-full object-cover shadow-lg rounded-t-lg lg:rounded-lg mb-8" />*/}
             <RichText
                 content={post.content.raw}
                 renderers={
                     {
                         p: ({children}) => <p className="mb-8 bg-none selection:bg-emerald-800"> {children} </p>,
-                        bold: ({children}) => <span className = "text-emerald-600 selection:text-black font-semibold">{children}</span>,
+                        bold: ({children}) => <span className = "shadow-white text-emerald-600 selection:text-black font-semibold dro bold-glow">{children}</span>,
                         h2: ({children}) => <h2 className = "text-center my-8 text-2xl">{children}</h2>,
                         img: ({ src, altText, height, width }) =>
-                            <div className = "my-8 ">
-                                <Image className= "shadow-2xl rounded-xl"
+                            <div className = "my-8 flex mx-auto">
+                                <Image className= "rounded-xl shadow-2xl"
                                   src={src ?? ""}
                                   alt={altText}
                                   height={height}

@@ -312,8 +312,6 @@ button {
 
 .svg-glow {
   -webkit-filter: drop-shadow(0px 0px 6px rgba(84,91,242,1));
-
-
 }
 
 .category-container {
@@ -437,4 +435,8 @@ button {
 
 .active .category-card .face.face1 .content a{
   transition: .5s;
+}
+
+.bold-glow {
+  -webkit-filter: drop-shadow(0px 0px 1px rgb(1, 101, 47));
 }
