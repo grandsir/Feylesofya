@@ -2,14 +2,17 @@ import Link from 'next/link'
 import {getFeylesof} from "../../services";
 import {Feylesof} from "../../services/models";
 import {NextPage} from "next";
+import React from 'react';
 
 const FeylesofRedirect: NextPage<[{node: Feylesof}]> = (feylesoflar) => {
   return (
     <div>
-      {feylesoflar.map(feylesof => (
+      {
+        feylesoflar.map(feylesof => (
         <Link href={'/feylesof/' + feylesof.node.slug} key={feylesof.node.slug}>
         </Link>
-      ))}
+        ))
+      }
     </div>
   );
 }

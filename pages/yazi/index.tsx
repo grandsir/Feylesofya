@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import {getPosts} from "../../services";
 import {Post} from "../../services/models";
-import {NextPage} from "next";
-
+import { NextPage } from "next";
+import React from 'react';
 
 const PostContent: NextPage<[{node: Post}]> = (posts) => {
   return (
