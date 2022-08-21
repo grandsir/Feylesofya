@@ -44,12 +44,11 @@ const PostCard = (post: Post) => {
         
         return (
           <div className="relative mx-auto">
-      <div className="post-card sm:min-w-post max-w-2xl mb-4 mx-auto">
-        <div className="lg:pl-4 lg:pr-4 p-1">
-          <div className="flex justify-between text-sm pt-2 px-1">
+      <div className="post-card sm:min-w-post max-w-2xl mb-8 mx-auto">
+          <div className="flex justify-between text-sm px-1">
             <div className="text-sm"></div>
           </div>
-          <div className="grid justify-center relative mb-7 mt-3 mx-2 lg:mx-0 max-h-3xl min-w-img">
+          <div className="grid justify-center relative mb-7 lg:mx-0 max-h-3xl min-w-img">
             <img
               src={post.featuredImage.url}
               alt={post.title}
@@ -102,7 +101,6 @@ const PostCard = (post: Post) => {
               </button>
             </Link>
           </div>
-        </div>
         <hr className={"border-gray-700 opacity-50"}></hr>
         <div className="sm:flex justify-between md:justify-left lg:mb-3 w-fullrounded-b-lg px-5 pt-3 lg:p-5">
           {post.feylesoflar.map((feylesof, index) => (

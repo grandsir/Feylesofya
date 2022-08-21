@@ -10,7 +10,7 @@ import Image from 'next/image';
 const PostDetail = ( post : Post) => {
   return (
       <div>
-      <h1 className="mb-0 text-7xl text-center bg-gradient-to-br from-[#038f6c] to-[#013025] text-slate-200 font-thin w-full py-16 align-middle justify-center my-auto">{post.title}</h1>
+      <h1 className="mb-8 text-7xl text-center bg-gradient-to-br from-[#038f6c] to-[#013025] text-slate-200 font-thin w-full py-16 align-middle justify-center my-auto">{post.title}</h1>
       <div className="text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 bg-none selection:bg-emerald-800">
         <div className="max-w-3xl mx-auto">
           <div className="px-4 lg:px-0 mx-auto">
