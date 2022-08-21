@@ -8,12 +8,13 @@ import {toLocalizedAuthor} from "../scripts";
 import Image from 'next/image';
 
 const PostDetail = ( post : Post) => {
-    return (
-    <div className="text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 bg-none selection:bg-emerald-800">
-       <div className = "max-w-3xl mx-auto">
-        <img src={post.featuredImage.url} alt="" className="mx-auto object-top h-full object-cover shadow-lg rounded-t-lg lg:rounded-lg mb-8"/>
-        <div className="px-4 lg:px-0 mx-auto">
-            <div className="sm:flex justify-between mx-auto gap-x-10 md:justify-left lg:mb-3 w-full rounded-b-lg px-5 pt-3 lg:p-5">
+  return (
+      <div>
+      <h1 className="mb-0 text-7xl text-center bg-gradient-to-br from-[#038f6c] to-[#013025] text-slate-200 font-thin w-full py-16 align-middle justify-center my-auto">{post.title}</h1>
+      <div className="text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 bg-none selection:bg-emerald-800">
+        <div className="max-w-3xl mx-auto">
+          <div className="px-4 lg:px-0 mx-auto">
+            {/*<div className="sm:flex justify-between mx-auto gap-x-10 md:justify-left w-full rounded-b-lg px-5 pt-3 lg:p-5">
                 {post.feylesoflar.map((feylesof, index) => (
                     <div>
                         <Link
@@ -31,7 +32,7 @@ const PostDetail = ( post : Post) => {
                                     src={feylesof.photo.url}
                                 />
                                 <p className="flex flex-col">
-                                    <span className="font-semibold hover:text-indigo-500">{feylesof.name}</span>
+                                    <span className="font-semibold hover:text-emerald-400 text-white">{feylesof.name}</span>
                                     <span className="text-left font-thin"> {toLocalizedAuthor(post.roles[index])}</span>
                                 </p>
                             </div>
@@ -39,9 +40,8 @@ const PostDetail = ( post : Post) => {
                     </div>
                 ))}
             </div>
-            <hr/>
-            <h1 className="mb-8 text-3xl font-bold mt-12 text-center">{post.title}</h1>
-
+            <hr className='mb-4 border-gray-700'></hr>*/}
+            {/*<img src={post.featuredImage.url} alt="" className="mx-auto object-top h-full object-cover shadow-lg rounded-t-lg lg:rounded-lg mb-8" />*/}
             <RichText
                 content={post.content.raw}
                 renderers={
@@ -65,10 +65,12 @@ const PostDetail = ( post : Post) => {
                     }
                 }
             />
-         </div>
-        </div>
-    </div>
-    );
+          </div>
+      </div>
+      </div>
+      </div>
+
+  );
 };
 
 export default PostDetail;

@@ -7,12 +7,15 @@ $black: #282936;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@600&family=Poppins&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Quicksand:wght@300&display=swap');
 p {
   font-family: 'Poppins', sans-serif;
 }
 h2 {
   font-family: 'Montserrat';
+}
+h1 {
+  font-family: 'Quicksand', sans-serif;
 }
 @font-face {
   font-family: "article_content";
