@@ -8,19 +8,6 @@ import Image from 'next/image';
 import { SidebarProps } from "./Sidebar";
 import 'flowbite-react'
 
-
-
-
-
-
-
-
-
-
-
-
-import {useEffect, useState} from "react";
-
 export function useReadingProgress() {
     const [completion, setCompletion] = useState(0);
     useEffect(() => {
