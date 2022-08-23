@@ -25,3 +25,36 @@ const AuthorRole = new Map<string, string>([
 export function toLocalizedAuthor(arg: string): string {
     return AuthorRole.get(arg)!;
 }
+
+const FeylesofRole = new Map<string, string> ( [
+    [
+        "author", "bg-purple-200 text-purple-900",
+    ],
+    [
+        "user", "bg-blue-200 text-blue-800"
+    ],
+    [
+        "verified_user", "bg-gray-700 text-gray-300"
+    ]
+])
+
+const LocalizedFeylesof = new Map<string, string> ( [
+    [
+        "author", "Yazar",
+    ],
+    [
+        "user", "Üye"
+    ],
+    [
+        "verified_user", "Onaylanmış Üye"
+    ]
+])
+
+
+export function getFeylesofBadge(arg: string): string {
+    return FeylesofRole.get(arg)!;
+}
+
+export function toLocalizedFeylesof(arg: string): string {
+    return LocalizedFeylesof.get(arg)!;
+}

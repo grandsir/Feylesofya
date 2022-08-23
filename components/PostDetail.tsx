@@ -7,6 +7,7 @@ import { shuffle, toLocalizedAuthor } from "../scripts";
 import Image from 'next/image';
 import { SidebarProps } from "./Sidebar";
 import 'flowbite-react'
+import Comments, {gradients} from "./Comment";
 
 export function useReadingProgress() {
     const [completion, setCompletion] = useState(0);
@@ -27,12 +28,6 @@ export function useReadingProgress() {
     }, []);
     return completion;
 }
-
-
-
-
-
-
 
 
 export const sidebarMenu: SidebarProps[] = [
@@ -84,77 +79,11 @@ export const sidebarMenu: SidebarProps[] = [
     },
 ];
 
-interface gradientColors {
-    gradient: string,
-    glowColor: string,
-    selectionColor: string
-    hoverColor: string
-    textColor: string
-    iconGlowColor: string
-    backgroundColor: string
-}
-
-const gradients: gradientColors[] = shuffle([
-    {
-        gradient: "bg-gradient-to-br from-[#734b6d] to-[#2b173d] text-slate-100",
-        textColor: "text-[#bf54af]",
-        hoverColor: "hover:text-[#734b6d]",
-        selectionColor: "selection:bg-[#734b6d]",
-        glowColor: "drop-shadow-[0_0_1px_rgb(191,84,175)]",
-        iconGlowColor: "drop-shadow-[0_0_6px_rgb(191,84,175)]",
-        backgroundColor: "bg-[#bf54af]"
-    },
-    {
-        gradient: "bg-gradient-to-br from-[#4c719c] to-[#172640] text-slate-200",
-        textColor: "text-[#488cdb]",
-        hoverColor: "hover:text-[#058ced]",
-        selectionColor: "selection:bg-[#1d3754]",
-        glowColor: "drop-shadow-[0_0_1px_rgb(29,117,219)]",
-        iconGlowColor: "drop-shadow-[0_0_6px_rgb(29,117,219)]",
-        backgroundColor: "bg-[#488cdb]"
-    },
-    {
-        gradient: "bg-gradient-to-br from-[#038f6c] to-[#013025] text-slate-200",
-        textColor: "text-emerald-500",
-        hoverColor: "hover:text-emerald-300",
-        selectionColor: "selection:bg-emerald-800",
-        glowColor: "drop-shadow-[0_0_1px_rgb(1,101,47)]",
-        iconGlowColor: "drop-shadow-[0_0_6px_rgb(1,101,47)]",
-        backgroundColor: "bg-emerald-500"
-    },
-    {
-        gradient: "bg-gradient-to-br from-[#555e69] to-[#181d24] text-slate-200",
-        textColor: "text-[#4a668a]",
-        hoverColor: "hover:text-[#555e69]",
-        selectionColor: "selection:bg-[#3a414a]",
-        glowColor: "drop-shadow-[0_0_1px_rgb(88,98,110)]",
-        iconGlowColor: "drop-shadow-[0_0_6px_rgb(88,98,110)]",
-        backgroundColor: "bg-[#4a668a]"
-    },
-    {
-        gradient: "bg-gradient-to-br from-[#7a1625] to-[#360b0f] text-slate-200",
-        textColor: "text-[#c43d51]",
-        hoverColor: "hover:text-[#d16474]",
-        selectionColor: "selection:bg-[#4d121b]",
-        glowColor: "drop-shadow-[0_0_1px_rgb(201,16,44)]",
-        iconGlowColor: "drop-shadow-[0_0_6px_rgb(201,16,44)]",
-        backgroundColor: "bg-[#c43d51]"
-    },
-    {
-        gradient: "bg-gradient-to-br from-[#bf7f3f] to-[#5e2717] text-slate-200",
-        textColor: "text-[#d4ae55]",
-        hoverColor: "hover:text-[#edcd80]",
-        selectionColor: "selection:bg-[#8a5b2c]",
-        glowColor: "drop-shadow-[0_0_1px_rgb(212,174,85)]",
-        iconGlowColor: "drop-shadow-[0_0_6px_rgb(212,174,85)]",
-        backgroundColor: "bg-[#d4ae55]"
-    },
-])
-
 const PostDetail = (post: Post) => {
-    const [colors, setColors] = useState(gradients[1])
+    console.log(post)
+    const [colors, setColors] = useState(gradients[0])
     const [showMenu, setShowMenu] = useState(false)
-    useEffect(() => setColors(shuffle(gradients)[0]), [])
+    useEffect(() => setColors(gradients[0]), [])
     const completion = useReadingProgress();
     return (
         <div className="flex flex-col">
@@ -164,7 +93,7 @@ const PostDetail = (post: Post) => {
                 style={{
                     transform: `translateX(${completion - 100}%)`,
                 }}
-                className={`fixed top-[52px] z-50 ${colors.iconGlowColor} w-full transition-transform duration-150 h-1 ${colors.backgroundColor} rounded-md`}
+                className={`fixed top-[52px] z-50 ${colors.iconGlowColor} w-full h-1 ${colors.backgroundColor} rounded-md`}
             />
             <div
                 className={`relative justify-end ${colors.gradient} ${colors.selectionColor} text-slate-200 font-thin w-full pt-20 pb-24 align-middle mb-16 mx-auto`}>
@@ -229,18 +158,18 @@ const PostDetail = (post: Post) => {
                     </div>
                 </div>
             </div>
-            <div className="flex mx-auto pr-32">
+            <div className="flex mx-auto pr-36">
                 {/* Sidebar */}
-                <div className="hidden menu_disappear:block sticky self-start top-20 cg_single:ml-20 left-0 max-w-xs">
+                <div className="hidden menu_disappear:block sticky self-start top-20 cg_single:ml-20 left-0 mr-6 max-w-xs">
                     <ol className={`relative ${showMenu ? "border-l" : ""} border-gray-700`}>
                         <button className={`${showMenu ? "rotate-180" : ""} transition-transform duration-300 ease-in-out -left-[28px] bg-gray-800 ring-[12px] ring-[#0e0a1a]  rounded-full w-14 h-14 mb-10 inline-flex items-center`}
                             onClick={() => setShowMenu(!showMenu)}>
                             <svg className={`ml-[8px] mt-[3px] w-10 h-10 ${colors.textColor} ${colors.iconGlowColor}`} aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7">
                                 </path>
                             </svg>
                         </button>
-                        <div className={`${showMenu ? "" : "opacity-0"} transition-opacity duration-300`}>
+                        <div className={`${showMenu ? "" : "opacity-0"} transition-opacity ${showMenu ? "pointer-events-auto" : "pointer-events-none"} duration-300`}>
                             {sidebarMenu.map((sidebarItem: SidebarProps, index: number) => {
                                 return (
                                     <li className={`mb-10 ml-5 items-center justify-center align-middle`}>
@@ -274,41 +203,43 @@ const PostDetail = (post: Post) => {
                     </ol>
                 </div>
                 {/* Content Section  */}
-                <div className={`text-white shadow-lg rounded-lg lg:p-4 pb-12 mb-8 bg-none ${colors.selectionColor}`}>
-                    <div className="max-w-3xl grow mx-auto">
-                        <div className="px-4 lg:px-0 mx-auto">
-                            {/*<img src={post.featuredImage.url} alt="" className="mx-auto object-top h-full object-cover shadow-lg rounded-t-lg lg:rounded-lg mb-8" />*/}
-                            <RichText
-                                content={post.content.raw}
-                                renderers={
-                                    {
-                                        p: ({ children }) => <p
-                                            className={`mb-8 bg-none`}> {children} </p>,
-                                        bold: ({ children }) => <span
-                                            className={`${colors.textColor} ${colors.glowColor}  font-semibold`}>{children}</span>,
-                                        h2: ({ children }) => <h2 className="text-center my-8 text-2xl">{children}</h2>,
-                                        img: ({ src, altText, height, width }) =>
-                                            <div className="my-8 flex mx-auto">
-                                                <Image className="rounded-xl shadow-2xl"
-                                                    src={src ?? ""}
-                                                    alt={altText}
-                                                    height={height}
-                                                    width={width}
-                                                    objectFit="cover"
-                                                />
-                                            </div>,
-                                        ul: ({ children }) => <ul
-                                            className="space-y-4 max-w-md list-disc list-inside marker:text-yellow-500 mt-8"> {children}</ul>,
-                                        li: ({ children }) => <li
-                                            className="text-indigo-300 hover:text-yellow-500 cursor-pointer"> {children}</li>,
-                                        h3: ({ children }) => <h3 className="text-xl text-center mt-6">{children}</h3>
-                                    }
+                <div className={`text-white max-w-3xl mx-auto shadow-lg rounded-lg lg:p-4 pb-12 mb-8 bg-none ${colors.selectionColor}`}>
+                    <div className="px-4 lg:px-0">
+                        {/*<img src={post.featuredImage.url} alt="" className="mx-auto object-top h-full object-cover shadow-lg rounded-t-lg lg:rounded-lg mb-8" />*/}
+                        <RichText
+                            content={post.content.raw}
+                            renderers={
+                                {
+                                    p: ({ children }) => <p
+                                        className={`mb-8 bg-none`}> {children} </p>,
+                                    bold: ({ children }) => <span
+                                        className={`${colors.textColor} ${colors.glowColor}  font-semibold`}>{children}</span>,
+                                    h2: ({ children }) => <h2 className="text-center my-8 text-2xl">{children}</h2>,
+                                    img: ({ src, altText, height, width }) =>
+                                        <div className="my-8 flex mx-auto">
+                                            <Image className="rounded-xl shadow-2xl"
+                                                   src={src ?? ""}
+                                                   alt={altText}
+                                                   height={height}
+                                                   width={width}
+                                                   objectFit="cover"
+                                            />
+                                        </div>,
+                                    ul: ({ children }) => <ul
+                                        className="space-y-4 max-w-md list-disc list-inside marker:text-yellow-500 mt-8"> {children}</ul>,
+                                    li: ({ children }) => <li
+                                        className="text-indigo-300 hover:text-yellow-500 cursor-pointer"> {children}</li>,
+                                    h3: ({ children }) => <h3 className="text-xl text-center mt-6">{children}</h3>
                                 }
-                            />
-                        </div>
+                            }
+                        />
                     </div>
                 </div>
+
             </div>
+            <hr className={"border-gray-700"}/>
+            <h1 className= {`text-5xl mx-auto ${colors.textColor} ${colors.iconGlowColor} my-8`}>Yorumlar</h1>
+            <Comments comments={post.comments}/>
         </div>
 
     );

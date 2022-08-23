@@ -15,6 +15,7 @@ const gradients = shuffle([
 ]);
 
 const PostCard = (post: Post) => {
+    console.log(post)
   const [gradient, setGradient] = useState<Map<string, string>>(
     new Map<string, string>()
   );

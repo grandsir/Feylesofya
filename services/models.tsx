@@ -16,17 +16,20 @@ export type FeylesofResultType = {
   }
 };
 
+export type CommentType = {
+  comment: string
+  slug: string
+  score: number
+  post: Post
+  feylesof: Feylesof
+  replies: Reply[]
+}
+
 export type Category = {
   name: string;
   slug: string;
   iconPath: string;
   timesClicked: number;
-};
-
-export type Comments = {
-  name: string;
-  comment: string;
-  feylesof: Feylesof;
 };
 
 export type Feylesof = {
@@ -36,11 +39,17 @@ export type Feylesof = {
   name: string;
   photo: Photo;
   posts: Post[];
-  comments: Comments[];
+  comments: CommentType[];
   followers: Feylesof[];
   following: Feylesof[];
   feylesofType: string;
 };
+
+export type Reply = {
+  feylesof: Feylesof;
+  reply: string;
+  score: number
+}
 
 export type Post = {
   title: string;
@@ -50,17 +59,11 @@ export type Post = {
   categories: Category[];
   feylesoflar: Feylesof[];
   roles: string[];
+  comments: CommentType[]
   content : {
     raw: RichTextContent
   }
 };
-
-
-
-
-
-
-
 
 type featuredImage = {
   url: string;

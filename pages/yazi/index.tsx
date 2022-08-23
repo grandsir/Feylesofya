@@ -8,8 +8,8 @@ const PostContent: NextPage<[{ node: Post }]> = () => {
   const [posts, setPosts] = useState<[{node: Post}] | []>([])
 
   useEffect(() => {
-    getPosts().then((feylesofs: [{node: Post}] | undefined) => {
-      setPosts(feylesofs ?? []);
+    getPosts().then((posts: [{node: Post}] | undefined) => {
+      setPosts(posts ?? []);
     });
   }, []);
   return (
