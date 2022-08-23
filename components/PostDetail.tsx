@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Transition } from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { Post } from "../services/models";
 import { RichText } from '@graphcms/rich-text-react-renderer';
@@ -127,10 +127,7 @@ const gradients: gradientColors[] = shuffle([
 
 const PostDetail = (post: Post) => {
     const [colors, setColors] = useState(gradients[1])
-    const [showMenu, setShowMenu] = useState(true)
-
-
-
+    const [showMenu, setShowMenu] = useState(false)
     useEffect(() => setColors(shuffle(gradients)[0]), [])
     const completion = useReadingProgress();
     return (
