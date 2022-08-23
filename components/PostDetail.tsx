@@ -6,8 +6,47 @@ import Link from "next/link";
 import { shuffle, toLocalizedAuthor } from "../scripts";
 import Image from 'next/image';
 import { SidebarProps } from "./Sidebar";
-import { useReadingProgress } from '../pages/yazi/scrollProgress'
 import 'flowbite-react'
+
+
+
+
+
+
+
+
+
+
+
+
+import {useEffect, useState} from "react";
+
+export function useReadingProgress() {
+    const [completion, setCompletion] = useState(0);
+    useEffect(() => {
+        function updateScrollCompletion() {
+            const currentProgress = window.scrollY;
+            let scrollHeight = document.body.scrollHeight - window.innerHeight;
+            if (scrollHeight) {
+                setCompletion(
+                    Number((currentProgress / scrollHeight).toFixed(2)) * 100
+                );
+            }
+        }
+        window.addEventListener("scroll", updateScrollCompletion);
+        return () => {
+            window.removeEventListener("scroll", updateScrollCompletion);
+        };
+    }, []);
+    return completion;
+}
+
+
+
+
+
+
+
 
 export const sidebarMenu: SidebarProps[] = [
     {
