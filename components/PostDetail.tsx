@@ -158,6 +158,7 @@ const PostDetail = (post: Post) => {
     const completion = useReadingProgress();
     return (
         <div className="flex flex-col">
+            {/* Progress Bar */}
             <span
                 id="progress-bar"
                 style={{
@@ -170,6 +171,7 @@ const PostDetail = (post: Post) => {
                 <h1 className="text-7xl text-center mb-12">{post.title}</h1>
                 <div
                     className="absolute bottom-0 sm:flex justify-center mx-auto gap-x-10 md:justify-left w-full rounded-b-lg px-5 pt-3 lg:p-5 my-auto">
+                    {/* Authors */}
                     {post.feylesoflar.map((feylesof, index) => (
                         <div>
                             <Link
@@ -227,8 +229,9 @@ const PostDetail = (post: Post) => {
                     </div>
                 </div>
             </div>
-            <div className="flex mx-auto">
-                <div className="hidden menu_disappear:block sticky self-start top-32 cg_single:ml-20 mr-20">
+            <div className="flex mx-auto pr-32">
+                {/* Sidebar */}
+                <div className="hidden menu_disappear:block sticky self-start top-20 cg_single:ml-20 left-0 max-w-xs">
                     <ol className={`relative ${showMenu ? "border-l" : ""} border-gray-700`}>
                         <button className={`${showMenu ? "rotate-180" : ""} transition-transform duration-300 ease-in-out -left-[28px] bg-gray-800 ring-[12px] ring-[#0e0a1a]  rounded-full w-14 h-14 mb-10 inline-flex items-center`}
                             onClick={() => setShowMenu(!showMenu)}>
@@ -270,8 +273,9 @@ const PostDetail = (post: Post) => {
                         </div>
                     </ol>
                 </div>
+                {/* Content Section  */}
                 <div className={`text-white shadow-lg rounded-lg lg:p-4 pb-12 mb-8 bg-none ${colors.selectionColor}`}>
-                    <div className="max-w-3xl mx-auto">
+                    <div className="max-w-3xl grow mx-auto">
                         <div className="px-4 lg:px-0 mx-auto">
                             {/*<img src={post.featuredImage.url} alt="" className="mx-auto object-top h-full object-cover shadow-lg rounded-t-lg lg:rounded-lg mb-8" />*/}
                             <RichText
