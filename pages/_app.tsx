@@ -6,6 +6,8 @@ import "tailwindcss/tailwind.css";
 import "../styles/globals.scss";
 import "../styles/FeylesofPage/background.scss"
 import "../styles/FeylesofPage/feylesofCard.scss"
+import "../styles/postDetailCircleAnimation.scss"
+
 import "flowbite-react";
 
 
