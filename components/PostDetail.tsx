@@ -7,7 +7,7 @@ import { shuffle, toLocalizedAuthor } from "../scripts";
 import Image from 'next/image';
 import { SidebarProps } from "./Sidebar";
 import 'flowbite-react'
-import Comments, {gradients} from "./Comment";
+import Comments, { gradientColors, gradients } from "./Comment";
 
 export function useReadingProgress() {
     const [completion, setCompletion] = useState(0);
@@ -81,7 +81,7 @@ export const sidebarMenu: SidebarProps[] = [
 
 const PostDetail = (post: Post) => {
     console.log(post)
-    const [colors, setColors] = useState(gradients[0])
+    const [colors, setColors] = useState<gradientColors | undefined>(undefined)
     const [showMenu, setShowMenu] = useState(false)
     useEffect(() => setColors(gradients[0]), [])
     const completion = useReadingProgress();
@@ -93,10 +93,10 @@ const PostDetail = (post: Post) => {
                 style={{
                     transform: `translateX(${completion - 100}%)`,
                 }}
-                className={`fixed top-[52px] z-50 ${colors.iconGlowColor} w-full h-1 ${colors.backgroundColor} rounded-md`}
+                className={`fixed top-[52px] z-50 ${colors?.iconGlowColor} w-full h-1 ${colors?.backgroundColor} rounded-md`}
             />
             <div
-                className={`relative justify-end ${colors.gradient} ${colors.selectionColor} text-slate-200 font-thin w-full pt-20 pb-24 align-middle mb-16 mx-auto`}>
+                className={`relative justify-end ${colors?.gradient} ${colors?.selectionColor} text-slate-200 font-thin w-full pt-20 pb-24 align-middle mb-16 mx-auto`}>
                 <h1 className="text-7xl text-center mb-12">{post.title}</h1>
                 <div
                     className="absolute bottom-0 sm:flex justify-center mx-auto gap-x-10 md:justify-left w-full rounded-b-lg px-5 pt-3 lg:p-5 my-auto">
@@ -120,7 +120,7 @@ const PostDetail = (post: Post) => {
                                     />
                                     <p className="flex flex-col">
                                         <span
-                                            className={`font-semibold ${colors.hoverColor} text-white`}>{feylesof.name}</span>
+                                            className={`font-semibold ${colors?.hoverColor} text-white`}>{feylesof.name}</span>
                                         <span
                                             className="text-left font-thin"> {toLocalizedAuthor(post.roles[index])}</span>
                                     </p>
@@ -158,13 +158,13 @@ const PostDetail = (post: Post) => {
                     </div>
                 </div>
             </div>
-            <div className="flex mx-auto pr-36">
+            <div className="flex mx-auto lg:pr-64">
                 {/* Sidebar */}
                 <div className="hidden menu_disappear:block sticky self-start top-20 cg_single:ml-20 left-0 mr-6 max-w-xs">
                     <ol className={`relative ${showMenu ? "border-l" : ""} border-gray-700`}>
                         <button className={`${showMenu ? "rotate-180" : ""} transition-transform duration-300 ease-in-out -left-[28px] bg-gray-800 ring-[12px] ring-[#0e0a1a]  rounded-full w-14 h-14 mb-10 inline-flex items-center`}
                             onClick={() => setShowMenu(!showMenu)}>
-                            <svg className={`ml-[8px] mt-[3px] w-10 h-10 ${colors.textColor} ${colors.iconGlowColor}`} aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg className={`ml-[8px] mt-[3px] w-10 h-10 ${colors?.textColor} ${colors?.iconGlowColor}`} aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7">
                                 </path>
                             </svg>
@@ -175,11 +175,11 @@ const PostDetail = (post: Post) => {
                                     <li className={`mb-10 ml-5 items-center justify-center align-middle`}>
                                         <a
                                             href={sidebarItem.slug}
-                                            className={`flex items-center p-2 text-base font-normal text-[#DBD8E3] rounded-lg ${colors.hoverColor}`}>
+                                            className={`flex items-center p-2 text-base font-normal text-[#DBD8E3] rounded-lg ${colors?.hoverColor}`}>
                                             <span className='flex absolute -left-[18px] justify-center items-center align-middle w-9 h-9 bg-gray-800 rounded-full ring-[12px] ring-[#0e0a1a]'>
                                                 <svg
                                                     aria-hidden="true"
-                                                    className={`${colors.iconGlowColor} w-6 h-6 ${colors.textColor} transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white m-auto`}
+                                                    className={`${colors?.iconGlowColor} w-6 h-6 ${colors?.textColor} transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white m-auto`}
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +203,7 @@ const PostDetail = (post: Post) => {
                     </ol>
                 </div>
                 {/* Content Section  */}
-                <div className={`text-white max-w-3xl mx-auto shadow-lg rounded-lg lg:p-4 pb-12 mb-8 bg-none ${colors.selectionColor}`}>
+                <div className={`text-white max-w-3xl mx-auto shadow-lg rounded-lg lg:p-4 pb-12 mb-8 bg-none ${colors?.selectionColor}`}>
                     <div className="px-4 lg:px-0">
                         {/*<img src={post.featuredImage.url} alt="" className="mx-auto object-top h-full object-cover shadow-lg rounded-t-lg lg:rounded-lg mb-8" />*/}
                         <RichText
@@ -213,16 +213,16 @@ const PostDetail = (post: Post) => {
                                     p: ({ children }) => <p
                                         className={`mb-8 bg-none`}> {children} </p>,
                                     bold: ({ children }) => <span
-                                        className={`${colors.textColor} ${colors.glowColor}  font-semibold`}>{children}</span>,
+                                        className={`${colors?.textColor} ${colors?.glowColor}  font-semibold`}>{children}</span>,
                                     h2: ({ children }) => <h2 className="text-center my-8 text-2xl">{children}</h2>,
                                     img: ({ src, altText, height, width }) =>
                                         <div className="my-8 flex mx-auto">
                                             <Image className="rounded-xl shadow-2xl"
-                                                   src={src ?? ""}
-                                                   alt={altText}
-                                                   height={height}
-                                                   width={width}
-                                                   objectFit="cover"
+                                                src={src ?? ""}
+                                                alt={altText}
+                                                height={height}
+                                                width={width}
+                                                objectFit="cover"
                                             />
                                         </div>,
                                     ul: ({ children }) => <ul
@@ -237,9 +237,9 @@ const PostDetail = (post: Post) => {
                 </div>
 
             </div>
-            <hr className={"border-gray-700"}/>
-            <h1 className= {`text-5xl mx-auto ${colors.textColor} ${colors.iconGlowColor} my-8`}>Yorumlar</h1>
-            <Comments comments={post.comments}/>
+            <hr className={"border-gray-700"} />
+            <h1 className={`text-5xl mx-auto ${colors?.textColor} ${colors?.iconGlowColor} my-8`}>Yorumlar</h1>
+            <Comments comments={post.comments} />
         </div>
 
     );

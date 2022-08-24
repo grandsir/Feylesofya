@@ -72,6 +72,7 @@ export const getPostBySlugQuery = `
             id
             name
             nickname
+            feylesofType
             photo {
               url
             }
@@ -82,7 +83,7 @@ export const getPostBySlugQuery = `
         }
         score
         slug
-       }
+      }
     }
   }
 `

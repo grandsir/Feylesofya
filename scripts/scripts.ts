@@ -1,5 +1,5 @@
 export function shuffle(array: any[]) {
-    let currentIndex = array.length,  randomIndex;
+    let currentIndex = array.length, randomIndex;
 
     while (currentIndex != 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -26,19 +26,19 @@ export function toLocalizedAuthor(arg: string): string {
     return AuthorRole.get(arg)!;
 }
 
-const FeylesofRole = new Map<string, string> ( [
+const FeylesofRole = new Map<string, string>([
     [
-        "author", "bg-purple-200 text-purple-900",
+        "author", "bg-blue-200 text-blue-800 ",
     ],
     [
-        "user", "bg-blue-200 text-blue-800"
+        "user", "bg-red-100 text-gray-600"
     ],
     [
         "verified_user", "bg-gray-700 text-gray-300"
     ]
 ])
 
-const LocalizedFeylesof = new Map<string, string> ( [
+const LocalizedFeylesof = new Map<string, string>([
     [
         "author", "Yazar",
     ],

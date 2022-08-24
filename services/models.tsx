@@ -35,6 +35,7 @@ export type Category = {
 export type Feylesof = {
   bio: string;
   id: string;
+  nickname: string;
   slug: string;
   name: string;
   photo: Photo;
@@ -60,7 +61,7 @@ export type Post = {
   feylesoflar: Feylesof[];
   roles: string[];
   comments: CommentType[]
-  content : {
+  content: {
     raw: RichTextContent
   }
 };

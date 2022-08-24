@@ -15,7 +15,7 @@ const gradients = shuffle([
 ]);
 
 const PostCard = (post: Post) => {
-    console.log(post)
+  console.log(post)
   const [gradient, setGradient] = useState<Map<string, string>>(
     new Map<string, string>()
   );
@@ -36,62 +36,62 @@ const PostCard = (post: Post) => {
   return (
     <div className="relative mx-auto">
       <div className="post-card sm:min-w-post max-w-2xl mb-12 mx-auto">
-          <div className="flex justify-between text-sm">
-            <div className="text-sm"></div>
-          </div>
-          <div className="grid justify-center relative mb-7 mx-2 lg:mx-0 max-h-3xl min-w-img ">
-            <img
-              src={post.featuredImage.url}
-              alt={post.title}
-              className="mx-auto shadow-lg rounded-lg max-h-3xl min-w-img"
-            />
-            <div className="hidden cg_post_disappear:block relative ml-2">
-              <div className="absolute bottom-0 left-0">
-                {post.categories.map((category) => (
-                  <div
-                    id={category.slug}
-                    className={`max-w-40 cursor-pointer hover:scale-110 transition duration-300 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium rounded-full group ${gradient.get(
-                      category.slug
-                    )}`}
-                  >
-                    <Link href={`/kategori/${category.slug}`}>
-                      <span className="category">
-                        <span className="transition-all ease-in duration-75 shadow-3xl rounded-full font-semibold ">
-                          {category.name}
-                        </span>
+        <div className="flex justify-between text-sm">
+          <div className="text-sm"></div>
+        </div>
+        <div className="grid justify-center relative mb-7 mx-2 lg:mx-0 max-h-3xl min-w-img ">
+          <img
+            src={post.featuredImage.url}
+            alt={post.title}
+            className="mx-auto shadow-lg rounded-lg max-h-3xl min-w-img"
+          />
+          <div className="hidden cg_post_disappear:block relative ml-2">
+            <div className="absolute bottom-0 left-0">
+              {post.categories.map((category) => (
+                <div
+                  id={category.slug}
+                  className={`max-w-40 cursor-pointer hover:scale-110 transition duration-300 relative ml-2 inline-flex shadow-xl p-0.5 mb-4 text-sm font-medium rounded-full group ${gradient.get(
+                    category.slug
+                  )}`}
+                >
+                  <Link href={`/kategori/${category.slug}`}>
+                    <span className="category">
+                      <span className="transition-all ease-in duration-75 shadow-3xl rounded-full font-semibold ">
+                        {category.name}
                       </span>
-                    </Link>
-                  </div>
-                ))}
-              </div>
+                    </span>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
-          <h1 className="transition duration-100 text-center mb-4 cursor-pointer hover:text-indigo-600 text-3xl font-semibold ">
-            <Link
-              href={{
-                pathname: "/yazi/[slug]",
-                query: { slug: post.slug },
-              }}
-            >{`${post.title}`}</Link>
-          </h1>
-          <p className="p-4 text-sm md:text-base lg:text-base">
-            {post.excerpt}
-          </p>
-          <div className="flex pl-2 pb-4 justify-end w-full">
-            <Link
-                href={{
-                  pathname: "/yazi/[slug]",
-                  query: { slug: post.slug },
-                }}
-            >
-              <button className="read-more glow-on-hover">
-                <span className="circle" aria-hidden="true">
-                  <span className="icon arrow"></span>
-                </span>
-                <span className="button-text">Okumaya Devam Et</span>
-              </button>
-            </Link>
-          </div>
+        </div>
+        <h1 className="transition duration-100 text-center mb-4 cursor-pointer hover:text-indigo-600 text-3xl font-semibold ">
+          <Link
+            href={{
+              pathname: "/yazi/[slug]",
+              query: { slug: post.slug },
+            }}
+          >{`${post.title}`}</Link>
+        </h1>
+        <p className="p-4 text-sm md:text-base lg:text-base">
+          {post.excerpt}
+        </p>
+        <div className="flex pl-2 pb-4 justify-end w-full">
+          <Link
+            href={{
+              pathname: "/yazi/[slug]",
+              query: { slug: post.slug },
+            }}
+          >
+            <button className="read-more glow-on-hover mr-3">
+              <span className="circle" aria-hidden="true">
+                <span className="icon arrow"></span>
+              </span>
+              <span className="button-text">Okumaya Devam Et</span>
+            </button>
+          </Link>
+        </div>
         <hr className={"border-gray-700 opacity-50"}></hr>
         <div className="sm:flex justify-between md:justify-left lg:mb-3 w-fullrounded-b-lg px-5 pt-3 lg:p-5">
           {post.feylesoflar.map((feylesof, index) => (
