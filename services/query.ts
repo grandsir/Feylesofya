@@ -11,6 +11,21 @@ query PostQuery {
         featuredImage {
           url
         }
+        comments {
+        feylesof {
+          bio
+          id
+          name
+          nickname
+          photo {
+            url
+          }
+          slug
+        }
+        comment
+        score
+        slug
+        }
         categories {
           name
           slug

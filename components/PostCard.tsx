@@ -12,17 +12,10 @@ export const gradients = shuffle([
   "bg-gradient-to-br from-[#555e69] to-[#181d24] text-slate-200",
   "bg-gradient-to-br from-[#7a1625] to-[#360b0f] text-slate-200",
   "bg-gradient-to-br from-[#bf7f3f] to-[#5e2717] text-slate-200",
-
 ]);
 
-//  "bg-gradient-to-br from-[#ffffff] to-[#19547b] text-gray-800",
-// "bg-gradient-to-br from-purple-500 to-pink-500 text-gray-800",
-// "bg-gradient-to-br from-green-400 to-blue-600 text-gray-800",
-// "bg-gradient-to-br from-cyan-500 to-blue-500 text-gray-800",
-// "bg-gradient-to-br from-purple-600 to-blue-500 text-gray-800",
-// "bg-gradient-to-br from-teal-300 to-lime-300 text-gray-800",
-// "bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 text-gray-800",
 const PostCard = (post: Post) => {
+  console.log(post)
   const [gradient, setGradient] = useState<Map<string, string>>(
     new Map<string, string>()
   );

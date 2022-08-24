@@ -1,12 +1,12 @@
 import React from "react";
 
-type SidebarProps = {
+export type SidebarProps = {
   name: string;
   iconPath: string;
   slug: string;
 };
 
-const sidebarMenu: SidebarProps[] = [
+export const sidebarMenu: SidebarProps[] = [
   {
     name: "Ana Sayfa",
     iconPath:

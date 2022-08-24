@@ -59,6 +59,37 @@ export const getPostBySlugQuery = `
       content {
         raw
       }
+      comments {
+        feylesof {
+          bio
+          id
+          name
+          nickname
+          photo {
+            url
+          }
+          feylesofType
+          slug
+        }
+        comment
+        replies {
+          feylesof {
+            bio
+            id
+            name
+            nickname
+            feylesofType
+            photo {
+              url
+            }
+            slug
+          }
+          reply
+          score
+        }
+        score
+        slug
+      }
     }
   }
 `
