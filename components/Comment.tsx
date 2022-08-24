@@ -100,6 +100,37 @@ const Comments = ({ comments }: IComments) => {
         <div className={`antialiased mx-auto max-w-screen-sm mb-32 ${colors?.selectionColor}`}>
             <div className="space-y-4 mt-6">
 
+                {/* Current User Comment */}
+
+                <div className="flex-shrink-0 mr-3 mb-12">
+                    <div className="flex flex-row ml-3 space-y-2">
+                        <img className="mt-8 rounded-full w-7 h-7 mr-3 sm:w-8 sm:h-8"
+                             src={comments[0].feylesof.photo.url}
+                             alt="" />
+                        <div
+                            className={`${colors?.borderColor} border flex-1 bg-gray-800 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed`}>
+                            <div className="flex flex-row">
+                                <span className={`${colors?.textColor}`}>{comments[0].feylesof.nickname}</span>
+                                <span className={`${getFeylesofBadge(comments[0].feylesof.feylesofType)} text-xs font-semibold ml-3 rounded-lg my-auto px-2.5 py-0.5`}>
+                                                        {toLocalizedFeylesof(comments[0].feylesof.feylesofType)}
+                                                    </span>
+                            </div>
+                            <form>
+                                <div className="mt-4 mb-4 w-full">
+                                    <div className="py-1 rounded-t-lg bg-none">
+                                        <textarea style={{ resize: "none" }} id="comment" rows="4" className="px-0 w-full text-sm border-0 bg-gray-800 focus:ring-0 text-white placeholder-gray-400" placeholder="İnan buraya ne yazacağım hakkında hiçbir fikrim yok" required></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div className={`cursor-pointer ml-14 mt-4 flex justify-end items-center py-0.5 px-0.5 rounded-lg group ${colors?.gradient} group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white`}>
+                        <h1 className="flex w-full relative mx-auto justify-center px-5 py-2.5 text-xl text-slate-400 group-hover:text-white transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            Gönder
+                        </h1>
+                    </div>
+                </div>
+
                 { /* Feylesof Comments */}
 
                 {comments.map((comment) =>
@@ -128,8 +159,8 @@ const Comments = ({ comments }: IComments) => {
                             </p>
                             <div className="mt-4 flex items-center">
                                 <div className="flex -space-x-2 mr-2">
-                                    {
-                                     /* Feylesof Replies */}
+                                    {/* Feylesof Replies */}
+
                                     {
                                         comment.replies.map((reply, index) => {
                                             if (index <= 4) {
@@ -165,6 +196,7 @@ const Comments = ({ comments }: IComments) => {
                             </div>
 
                             { /* Reply menu shown */}
+
                             <div className={`my-4 space-y-4`}>
                                 <div className={`flex flex-col mt-2 ${replyComment === comment.slug ? "" : "hidden"}`}>
 

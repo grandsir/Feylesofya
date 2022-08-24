@@ -81,13 +81,18 @@ export const sidebarMenu: SidebarProps[] = [
 
 const PostDetail = (post: Post) => {
     console.log(post)
+
     const [colors, setColors] = useState<gradientColors | undefined>(undefined)
     const [showMenu, setShowMenu] = useState(false)
+
     useEffect(() => setColors(gradients[0]), [])
+
     const completion = useReadingProgress();
     return (
         <div className="flex flex-col">
+
             {/* Progress Bar */}
+
             <span
                 id="progress-bar"
                 style={{
@@ -95,12 +100,60 @@ const PostDetail = (post: Post) => {
                 }}
                 className={`fixed top-[52px] z-50 ${colors?.iconGlowColor} w-full h-1 ${colors?.backgroundColor} rounded-md`}
             />
+
+            {/* Sidebar */}
+
+            <div className="hidden menu_disappear:block fixed self-start top-20 cg_single:ml-20 left-0 mr-6 max-w-xs z-50">
+                <ol className={`relative ${showMenu ? "border-l" : ""} border-gray-700`}>
+                    <button className={`${showMenu ? "rotate-180" : ""} transition-transform duration-300 ease-in-out -left-[28px] bg-gray-800 ring-[#0e0a1a]  rounded-full w-14 h-14 mb-10 inline-flex items-center`}
+                            onClick={() => setShowMenu(!showMenu)}>
+                        <svg className={`ml-[8px] mt-[3px] w-10 h-10 ${colors?.textColor} ${colors?.iconGlowColor}`} aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div className={`${showMenu ? "" : "opacity-0"} transition-opacity ${showMenu ? "pointer-events-auto" : "pointer-events-none"} duration-300`}>
+                        {sidebarMenu.map((sidebarItem: SidebarProps, index: number) => {
+                            return (
+                                <li className={`mb-10 ml-5 items-center justify-center align-middle`}>
+                                    <a
+                                        href={sidebarItem.slug}
+                                        className={`flex items-center p-2 text-base font-normal text-[#DBD8E3] rounded-lg ${colors?.hoverColor}`}>
+                                            <span className='flex absolute -left-[18px] justify-center items-center align-middle w-9 h-9 bg-gray-800 rounded-full ring-[12px] ring-[#0e0a1a]'>
+                                                <svg
+                                                    aria-hidden="true"
+                                                    className={`${colors?.iconGlowColor} w-6 h-6 ${colors?.textColor} transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white m-auto`}
+                                                    fill="currentColor"
+                                                    viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        fillRule="evenodd"
+                                                        d={sidebarItem.iconPath}
+                                                        clipRule="evenodd"
+                                                    ></path>
+                                                </svg>
+                                            </span>
+
+                                        <span className="flex-1 ml-3 whitespace-nowrap">
+                                                {sidebarItem.name}
+                                            </span>
+                                    </a>
+                                </li>
+                            );
+                        })}
+                    </div>
+                </ol>
+            </div>
+
             <div
                 className={`relative justify-end ${colors?.gradient} ${colors?.selectionColor} text-slate-200 font-thin w-full pt-20 pb-24 align-middle mb-16 mx-auto`}>
                 <h1 className="text-7xl text-center mb-12">{post.title}</h1>
                 <div
                     className="absolute bottom-0 sm:flex justify-center mx-auto gap-x-10 md:justify-left w-full rounded-b-lg px-5 pt-3 lg:p-5 my-auto">
+
                     {/* Authors */}
+
                     {post.feylesoflar.map((feylesof, index) => (
                         <div>
                             <Link
@@ -158,51 +211,11 @@ const PostDetail = (post: Post) => {
                     </div>
                 </div>
             </div>
-            <div className="flex mx-auto lg:pr-64">
-                {/* Sidebar */}
-                <div className="hidden menu_disappear:block sticky self-start top-20 cg_single:ml-20 left-0 mr-6 max-w-xs">
-                    <ol className={`relative ${showMenu ? "border-l" : ""} border-gray-700`}>
-                        <button className={`${showMenu ? "rotate-180" : ""} transition-transform duration-300 ease-in-out -left-[28px] bg-gray-800 ring-[12px] ring-[#0e0a1a]  rounded-full w-14 h-14 mb-10 inline-flex items-center`}
-                            onClick={() => setShowMenu(!showMenu)}>
-                            <svg className={`ml-[8px] mt-[3px] w-10 h-10 ${colors?.textColor} ${colors?.iconGlowColor}`} aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div className={`${showMenu ? "" : "opacity-0"} transition-opacity ${showMenu ? "pointer-events-auto" : "pointer-events-none"} duration-300`}>
-                            {sidebarMenu.map((sidebarItem: SidebarProps, index: number) => {
-                                return (
-                                    <li className={`mb-10 ml-5 items-center justify-center align-middle`}>
-                                        <a
-                                            href={sidebarItem.slug}
-                                            className={`flex items-center p-2 text-base font-normal text-[#DBD8E3] rounded-lg ${colors?.hoverColor}`}>
-                                            <span className='flex absolute -left-[18px] justify-center items-center align-middle w-9 h-9 bg-gray-800 rounded-full ring-[12px] ring-[#0e0a1a]'>
-                                                <svg
-                                                    aria-hidden="true"
-                                                    className={`${colors?.iconGlowColor} w-6 h-6 ${colors?.textColor} transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white m-auto`}
-                                                    fill="currentColor"
-                                                    viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d={sidebarItem.iconPath}
-                                                        clipRule="evenodd"
-                                                    ></path>
-                                                </svg>
-                                            </span>
 
-                                            <span className="flex-1 ml-3 whitespace-nowrap">
-                                                {sidebarItem.name}
-                                            </span>
-                                        </a>
-                                    </li>
-                                );
-                            })}
-                        </div>
-                    </ol>
-                </div>
+            <div className="flex mx-auto">
+
                 {/* Content Section  */}
+
                 <div className={`text-white max-w-3xl mx-auto shadow-lg rounded-lg lg:p-4 pb-12 mb-8 bg-none ${colors?.selectionColor}`}>
                     <div className="px-4 lg:px-0">
                         {/*<img src={post.featuredImage.url} alt="" className="mx-auto object-top h-full object-cover shadow-lg rounded-t-lg lg:rounded-lg mb-8" />*/}
