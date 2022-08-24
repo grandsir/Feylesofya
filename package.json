@@ -24,6 +24,7 @@
     "react-router": "^6.3.0",
     "reflect-metadata": "^0.1.13",
     "sass": "^1.54.0",
+    "usehooks-ts": "^2.6.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

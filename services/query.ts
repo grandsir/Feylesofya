@@ -31,7 +31,7 @@ query PostQuery {
             nickname
           }
           comments {
-            name
+            comment
           }
         }
       }
@@ -61,7 +61,7 @@ query FeylesofQuery {
             nickname
           }
           comments {
-            name
+            comment
           }
         }
       }

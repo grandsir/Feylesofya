@@ -20,16 +20,20 @@ export const getFeylesofBySlugQuery = `
         photo {
           url
         }
+        slug
         nickname
+        name
       }
       following {
         photo {
           url
         }
         nickname
+        name
+        slug
       }
       comments {
-        name
+        comment
       }
     }
   }

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { getCategories } from "../services";
 import { shuffle, toLocalizedAuthor } from "../scripts";
 
-const gradients = shuffle([
+export const gradients = shuffle([
   "bg-gradient-to-br from-[#734b6d] to-[#2b173d] text-slate-100",
   "bg-gradient-to-br from-[#4c719c] to-[#172640] text-slate-200",
   "bg-gradient-to-br from-[#038f6c] to-[#013025] text-slate-200",
@@ -87,10 +87,10 @@ const PostCard = (post: Post) => {
           </p>
           <div className="flex pl-2 pb-4 justify-end w-full">
             <Link
-                href={{
-                  pathname: "/yazi/[slug]",
-                  query: { slug: post.slug },
-                }}
+              href={{
+                pathname: "/yazi/[slug]",
+                query: { slug: post.slug },
+              }}
             >
               <button className="read-more glow-on-hover">
                 <span className="circle" aria-hidden="true">

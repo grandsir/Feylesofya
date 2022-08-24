@@ -4,13 +4,14 @@ import { Category } from "../services/models";
 import Link from "next/link";
 
 const categories: Category[] = [
-  { name: "Yok", slug: "here", timesClicked:0, iconPath:""},
-  { name: "Fikrim", slug: "tortured", timesClicked:0, iconPath:"" },
-  { name: "Hiçbir", slug: "being", timesClicked:0, iconPath:"" },
-  { name: "Hakkında", slug: "i'm", timesClicked:0, iconPath:"" },
-  { name: "Ne yazacağım", slug: "help", timesClicked:0, iconPath:"" },
-  { name: "Buraya", slug: "please", timesClicked:0, iconPath:"" },
+  { name: "Yok", slug: "here", timesClicked: 0, iconPath: "" },
+  { name: "Fikrim", slug: "tortured", timesClicked: 0, iconPath: "" },
+  { name: "Hiçbir", slug: "being", timesClicked: 0, iconPath: "" },
+  { name: "Hakkında", slug: "i'm", timesClicked: 0, iconPath: "" },
+  { name: "Ne yazacağım", slug: "help", timesClicked: 0, iconPath: "" },
+  { name: "Buraya", slug: "please", timesClicked: 0, iconPath: "" },
 ];
+
 
 const Header = () => {
   return (
@@ -22,7 +23,7 @@ const Header = () => {
               <img
                 className="cursor-pointer w-auto h-12"
                 src="../logo.png"
-              alt={"logo"}></img>
+                alt={"logo"}></img>
             </Link>
           </div>
           <div className="hidden md:float-left md:contents">
