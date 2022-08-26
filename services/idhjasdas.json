@@ -1,0 +1,166 @@
+[
+    {
+        "node": {
+            "nickname": "Demirhan Mehmet Atabey",
+            "id": "cl6m2j4abkz5w0buqkeymcr2q",
+            "bio": "2018’den beri yazılımla, 2020’den beri ise felsefeyle uğraşan ve ilgi duyan otodidaktik bir mobil geliştirici, feylesofya yazarı ve geliştiricisi.\n\nKariyerine independent(bağımsız) iOS geliştirici olarak devam etmektedir.\n\nBoş zamanlarında ise matematik/yazılım/felsefe hakkında yazılar yazmaktadır.",
+            "name": "Demirhan Mehmet Atabey",
+            "photo": {
+                "url": "https://media.graphassets.com/3bC2bKZKQcm4ErzKxV61"
+            },
+            "slug": "demirhan",
+            "feylesofType": "author",
+            "followers": [
+                {
+                    "nickname": "cok_fena_sigara_icerim_11"
+                },
+                {
+                    "nickname": "ecem_k"
+                }
+            ],
+            "following": [
+                {
+                    "nickname": "ecem_k"
+                }
+            ],
+            "comments": []
+        }
+    },
+    {
+        "node": {
+            "nickname": "cok_fena_sigara_icerim_11",
+            "id": "cl6nwtv4m8ca90aulyo4e8zr2",
+            "bio": "sigara içmeyi çok severim",
+            "name": "Sigara içerim",
+            "photo": {
+                "url": "https://media.graphassets.com/ovyVZLTC2C4gpOwpYbVQ"
+            },
+            "slug": "sigara",
+            "feylesofType": "author",
+            "followers": [],
+            "following": [
+                {
+                    "nickname": "Demirhan Mehmet Atabey"
+                }
+            ],
+            "comments": []
+        }
+    },
+    {
+        "node": {
+            "nickname": "ecem_k",
+            "id": "cl6uiymsb4ba50cungirx3710",
+            "bio": "",
+            "name": "Ecem Kaya",
+            "photo": {
+                "url": "https://media.graphassets.com/Zfc2SHtLQBul17EnKPV2"
+            },
+            "slug": "ecem",
+            "feylesofType": "author",
+            "followers": [
+                {
+                    "nickname": "Demirhan Mehmet Atabey"
+                },
+                {
+                    "nickname": "yasamak_istemiyorum_21"
+                }
+            ],
+            "following": [
+                {
+                    "nickname": "Demirhan Mehmet Atabey"
+                }
+            ],
+            "comments": [
+                {
+                    "comment": "örnek  asdasdasdasdasdsad"
+                },
+                {
+                    "comment": "örnek jkahjksajdka "
+                },
+                {
+                    "comment": "AGA HAYIR BAK VARLIK FESLEFESİ ÖYLE DEĞİL SEN SADECE ÖYLE SANIYORSUN\n\nFİLOZOF BİR TANIDIĞIM VAR ORADAN BİLİYORUM"
+                }
+            ]
+        }
+    },
+    {
+        "node": {
+            "nickname": "yasamak_istemiyorum_21",
+            "id": "cl7730z24fn6j0duiablp1wzm",
+            "bio": "Yasamak istemşyorhnm yatahtt cok zorp.",
+            "name": "Berke",
+            "photo": {
+                "url": "https://media.graphassets.com/yMk6yPqMSueYEv6z18vE"
+            },
+            "slug": "yasamak-istemiyorum-21",
+            "feylesofType": "user",
+            "followers": [],
+            "following": [
+                {
+                    "nickname": "ecem_k"
+                }
+            ],
+            "comments": []
+        }
+    },
+    {
+        "node": {
+            "nickname": "Aristo",
+            "id": "cl7765mgbft230aumcdb2dqlj",
+            "bio": "test",
+            "name": "test",
+            "photo": {
+                "url": "https://media.graphassets.com/yxsoxm4ZTOuFY9mrU7C0"
+            },
+            "slug": "test",
+            "feylesofType": "verified_user",
+            "followers": [],
+            "following": [],
+            "comments": []
+        }
+    },
+    {
+        "node": {
+            "nickname": "mahmut42424",
+            "id": "cl77r9d0535an0cuq4pnb2754",
+            "bio": null,
+            "name": "mahmut",
+            "photo": {
+                "url": "https://media.graphassets.com/ltobnABjT1WkWpwwYHBh"
+            },
+            "slug": "mahmut",
+            "feylesofType": null,
+            "followers": [],
+            "following": [],
+            "comments": []
+        }
+    },
+    {
+        "node": {
+            "nickname": "insanlarakötüiçerikvermektenhoşlanıyorum42",
+            "id": "cl77rffcc3bi20cuqx2glcn7j",
+            "bio": null,
+            "name": "jamie",
+            "photo": null,
+            "slug": "jamie",
+            "feylesofType": null,
+            "followers": [],
+            "following": [],
+            "comments": []
+        }
+    },
+    {
+        "node": {
+            "nickname": "ecemsu971521532014",
+            "id": "cl78jzf3yhoww0buugpcptq9b",
+            "bio": null,
+            "name": "ecemsugülnurhan korkmazosmanoğullarıayyıldızlıalbarakatürkerdogan",
+            "photo": null,
+            "slug": "ecemsu971521532014",
+            "feylesofType": null,
+            "followers": [],
+            "following": [],
+            "comments": []
+        }
+    }
+]
