@@ -1,14 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
+import ReactMarkdown from 'react-markdown'
 import { Post } from "../services/models";
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import Link from "next/link";
 import { shuffle, toLocalizedAuthor } from "../scripts";
 import Image from 'next/image';
 import { SidebarProps } from "./Sidebar";
+import remarkGfm from 'remark-gfm'
+
 import 'flowbite-react'
 import Comments, { gradientColors, gradients } from "./Comment";
 
+const postContent = `**Aristoteles** M.Ö. 384-322 yılları arasında yaşamış **felsefe** ve **doğa bilimlerinin** pek çok alanında çalışma yapmış antik dönem bilginidir. Aristoteles yaptığı gözlemler, çalışmalar ve yazdığı kitaplarla biyoloji biliminin kurucusu olarak kabul edilir. Yaygın olarak filozof kimliğiyle bilinse de felsefenin yanı sıra doğa bilimlerine dair bir çok eser ortaya koymuştur. Çevredeki pek çok canlıyı incelemiş, gezginlerle farklı coğrafyalardaki canlıları konuşmuş, bunları belli bir düzende ele almıştır.
+
+Dönemindeki ve öncesinde diğer pek çok felsefe ya da araştırmacı da doğa bilimleri ve hayvanlar üzerine çalışmalar ortaya koymuştur. Ancak Aristoteles’in hayvanlar üzerine çalışmaları önemli bir farka sahiptir. Aristoteles’in yaptığı çalışmalar kapsamlı geniş gözlemler içermektedir. Bununla birlikte bu gözlemlerini kuramsal bir çerçeve içine ele almış ve anlamlandırmıştır. Doğaya ve hayvanlara olan geniş kapsamlı sistematik yaklaşım ilk olarak Aristoteles’in çalışmalarında görüldüğü için **zoolojinin** kurucusu olarak atfedilir.
+
+## Aristoteles : Zoolojinin kurucusu
+
+![Aristoteles zoolojinin kurucusu!](https://feylesofya.vercel.app/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2FXr9EI6Q0QRijyKs1khFT&w=828&q=75)
+
+
+Aritoteles, çalışmalarında 450 kadar hayvan türünü incelemiş ve eserlerinde bahsetmiştir. 50 hayvan üzerinde ise detaylı çalışmalar yapmıştır. Detaylı çalışmalar yaptığı hayvanlar üzerinde diseksiyon yapmış, iç yapılarını incelemiştir.
+
+İncelediği hayvanlar çoğunlukla yaşadığı coğrafya çerçevesinde erişebildiği bölgelerdeki canlılardır. Yunanistan, Ege Adaları ve Anadolu’daki canlılar temel olarak incelediği canlıları barındırır. Bunun yanı sıra egzotik bölgelerden gösteri amaçlı ya da koleksiyon amaçlı getirilen hayvanları da incelemiştir. Bunlar Libya, Etiyopya, Kızıldeniz ve Hindistan gibi bölgelerden getirilen maymun, fil, deve ve aslan gibi hayvanlardır.
+
+Aristoteles, temel olarak ayrıntılı gözlemlerler, karşılaştırmalı incelemeler diseksiyon çalışmaları ile hayvanları ve doğayı araştırmıştır. Bunun yanı sıra gezginlerin anlattığı hayvan hikayelerini dinlemiş, ancak bunlara karşı oldukça şüpheli yaklaşmıştır. Eserlerinde çalışmalarını detaylı olarak anlatmasının yanı sıra çizimlerle de zenginleştirmiştir.
+
+MÖ 344-342 yılları arasında Aristoteles evrenin oluşumu ve işleyişine ilişkin kuramlarını geliştirirken, hayvanlar üzerine olan eserlerini de yazmıştır. Bu bağlamda, Aristoteles’in hayvanlarla ilgili çalışmalarını, felsefi yaklaşımından bağımsız incelemek anlamı azaltacaktır. Aristoteles’in hayvanlar üzerine 7 tane eseri bulunmaktadır.
+
+### Aristoteles’in hayvanlarla ilgili eserleri;
+
+* Hayvanların Tarihi Hakkında (*Historia Animalium),
+* Hayvanların Kısımları Üzerine (De Partibus Animalium),
+* Hayvanların Üremeleri Üzerine (De Generatione Animalium)
+* Ruh Üzerine (De Anima)
+* Doğa Bilimleri Üzerine (Parva Naturalia)
+* Hayvanların Hareketi Üzerine (De Moto Animalium)
+* Hayvanların Gelişimi Üzerine (De Incessu Animalium)
+`
 export function useReadingProgress() {
     const [completion, setCompletion] = useState(0);
     useEffect(() => {
@@ -106,7 +136,7 @@ const PostDetail = (post: Post) => {
             <div className="hidden menu_disappear:block fixed self-start top-20 cg_single:ml-20 left-0 mr-6 max-w-xs z-50">
                 <ol className={`relative ${showMenu ? "border-l" : ""} border-gray-700`}>
                     <button className={`${showMenu ? "rotate-180" : ""} transition-transform duration-300 ease-in-out -left-[28px] bg-gray-800 ring-[#0e0a1a]  rounded-full w-14 h-14 mb-10 inline-flex items-center`}
-                            onClick={() => setShowMenu(!showMenu)}>
+                        onClick={() => setShowMenu(!showMenu)}>
                         <svg className={`ml-[8px] mt-[3px] w-10 h-10 ${colors?.textColor} ${colors?.iconGlowColor}`} aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7">
                             </path>
@@ -119,25 +149,25 @@ const PostDetail = (post: Post) => {
                                     <a
                                         href={sidebarItem.slug}
                                         className={`flex items-center p-2 text-base font-normal text-[#DBD8E3] rounded-lg ${colors?.hoverColor}`}>
-                                            <span className='flex absolute -left-[18px] justify-center items-center align-middle w-9 h-9 bg-gray-800 rounded-full ring-[12px] ring-[#0e0a1a]'>
-                                                <svg
-                                                    aria-hidden="true"
-                                                    className={`${colors?.iconGlowColor} w-6 h-6 ${colors?.textColor} transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white m-auto`}
-                                                    fill="currentColor"
-                                                    viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d={sidebarItem.iconPath}
-                                                        clipRule="evenodd"
-                                                    ></path>
-                                                </svg>
-                                            </span>
+                                        <span className='flex absolute -left-[18px] justify-center items-center align-middle w-9 h-9 bg-gray-800 rounded-full ring-[12px] ring-[#0e0a1a]'>
+                                            <svg
+                                                aria-hidden="true"
+                                                className={`${colors?.iconGlowColor} w-6 h-6 ${colors?.textColor} transition duration-75 dark:text-gray-400 group-hover:text-gray-50 dark:group-hover:text-white m-auto`}
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    fillRule="evenodd"
+                                                    d={sidebarItem.iconPath}
+                                                    clipRule="evenodd"
+                                                ></path>
+                                            </svg>
+                                        </span>
 
                                         <span className="flex-1 ml-3 whitespace-nowrap">
-                                                {sidebarItem.name}
-                                            </span>
+                                            {sidebarItem.name}
+                                        </span>
                                     </a>
                                 </li>
                             );
@@ -219,7 +249,7 @@ const PostDetail = (post: Post) => {
                 <div className={`text-white max-w-3xl mx-auto shadow-lg rounded-lg lg:p-4 pb-12 mb-8 bg-none ${colors?.selectionColor}`}>
                     <div className="px-4 lg:px-0">
                         {/*<img src={post.featuredImage.url} alt="" className="mx-auto object-top h-full object-cover shadow-lg rounded-t-lg lg:rounded-lg mb-8" />*/}
-                        <RichText
+                        {/* <RichText
                             content={post.content.raw}
                             renderers={
                                 {
@@ -245,7 +275,22 @@ const PostDetail = (post: Post) => {
                                     h3: ({ children }) => <h3 className="text-xl text-center mt-6">{children}</h3>
                                 }
                             }
-                        />
+                        /> */}
+
+                        <ReactMarkdown components={{
+                            p: ({ children }) => <p
+                                className={`mb-8 bg-none`}> {children} </p>,
+                            strong: ({ children }) => <span
+                                className={`${colors?.textColor} ${colors?.glowColor}  font-semibold`}>{children}</span>,
+                            h2: ({ children }) => <h2 className="text-center my-8 text-2xl">{children}</h2>,
+
+                            ul: ({ children }) => <ul
+                                className="space-y-4 max-w-md list-disc list-inside marker:text-yellow-500 mt-8"> {children}</ul>,
+                            li: ({ children }) => <li
+                                className="text-indigo-300 hover:text-yellow-500 cursor-pointer"> {children}</li>,
+                            h3: ({ children }) => <h3 className="text-xl text-center mt-6">{children}</h3>
+                        }} children={postContent} remarkPlugins={[remarkGfm]} />,
+
                     </div>
                 </div>
 

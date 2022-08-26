@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import React from "react";
-
+import { SessionProvider } from "next-auth/react"
 import { Layout } from "../components/";
 import "tailwindcss/tailwind.css";
 import "../styles/globals.scss";

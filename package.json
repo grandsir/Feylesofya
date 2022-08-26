@@ -20,10 +20,12 @@
     "react": "^18.3.0-next-19e9a4c68-20220818",
     "react-dom": "^18.3.0-next-19e9a4c68-20220818",
     "react-lottie": "^1.2.3",
+    "react-markdown": "^8.0.3",
     "react-multi-carousel": "^2.8.2",
     "react-router": "^6.3.0",
     "react-transition-group": "^4.4.5",
     "reflect-metadata": "^0.1.13",
+    "remark-gfm": "^3.0.1",
     "sass": "^1.54.0",
     "usehooks-ts": "^2.6.0",
     "uuid": "^8.3.2"
