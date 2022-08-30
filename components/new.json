@@ -1,0 +1,111 @@
+[
+    {
+        "slug": "varlik-felsefesi",
+        "createdAt": "2022-08-03T09:29:07.885208+00:00",
+        "title": "Varl\u0131k felsefesi nedir?",
+        "excerpt": "''Ontoloji'' ad\u0131yla da bilinen varl\u0131k felsefesi, nihilizm, idealizm, teoloji ve metafizik gibi bir\u00e7ok temel felsefi ak\u0131m\u0131 etkilemi\u015ftir. ''Varl\u0131k nedir'' ve ''Varl\u0131k var m\u0131d\u0131r?''... daha fazla g\u00f6ster",
+        "roles": [
+            "lead",
+            "second"
+        ],
+        "featuredImage": {
+            "url": "https://media.graphassets.com/JzWW4gevRCjpYPydCIlA"
+        },
+        "comments": [],
+        "categories": [
+            {
+                "category": "varlik"
+            },
+            {
+                "category": "epistemoloji"
+            },
+            {
+                "category": "etik"
+            },
+            {
+                "category": "din-felsefesi"
+            },
+            {
+                "category": "bilim-felsefesi"
+            }
+        ],
+        "feylesoflar": [
+            {
+                "feylesofId": "cl6m2j4abkz5w0buqkeymcr2q",
+                "role": "lead"
+            },
+            {
+                "feylesofId": "cl6nwtv4m8ca90aulyo4e8zr2",
+                "role": "lead"
+            }
+        ]
+    },
+    {
+        "slug": "aristo",
+        "createdAt": "2022-08-08T19:18:18.446325+00:00",
+        "title": "Aristoteles kimdir?",
+        "excerpt": "Trakya\u2019daki Stageira\u2019da do\u011fdu. Bir hekim ailesinden gelen babas\u0131 Nikomakhos, Makedonya Kral\u0131 II. Filip\u2019in babas\u0131 II. Amyntas\u2019\u0131n \u00f6zel hekimi ve yak\u0131n dostu idi. Aristo\u2019nun gerek ailesi gerekse bulundu\u011fu k\u00fclt\u00fcr \u00e7evresi kendisini... oku devam",
+        "roles": [
+            "collabrative",
+            "collabrative"
+        ],
+        "featuredImage": {
+            "url": "https://media.graphassets.com/reYQVPOCRueCXJrsuuJZ"
+        },
+        "comments": [
+            {
+                "comment": "AGA HAYIR BAK VARLIK FESLEFES\u0130 \u00d6YLE DE\u011e\u0130L SEN SADECE \u00d6YLE SANIYORSUN\n\nF\u0130LOZOF B\u0130R TANIDI\u011eIM VAR ORADAN B\u0130L\u0130YORUM",
+                "replies": [
+                    {
+                        "reply": "YA S\u0130KT\u0130R G\u0130T AMK BEN\u0130M AB\u0130M ODT\u00dc VARLIK FELSEFES\u0130 MEZUNU ADAM DO\u011eRU YAZMI\u015e ",
+                        "score": 4,
+                        "feylesofId": "cl6m2j4abkz5w0buqkeymcr2q"
+                    },
+                    {
+                        "reply": "Ben sigara i\u00e7erim.",
+                        "score": 6,
+                        "feylesofId": "cl6nwtv4m8ca90aulyo4e8zr2"
+                    },
+                    {
+                        "reply": "memhgaba ecem tanm\u015fiabilzrmiz  \ud83d\udc49\ud83d\udc48 ",
+                        "score": -124,
+                        "feylesofId": "cl7730z24fn6j0duiablp1wzm"
+                    },
+                    {
+                        "reply": "+1",
+                        "score": 4,
+                        "feylesofId": "cl7765mgbft230aumcdb2dqlj"
+                    }
+                ],
+                "score": null,
+                "slug": "yorum3",
+                "feylesofId": "cl6uiymsb4ba50cungirx3710"
+            },
+            {
+                "comment": "\u00f6rnek jkahjksajdka ",
+                "replies": [],
+                "score": null,
+                "slug": "ornek",
+                "feylesofId": "cl6uiymsb4ba50cungirx3710"
+            }
+        ],
+        "categories": [
+            {
+                "category": "mantik"
+            },
+            {
+                "category": "bilim-felsefesi"
+            }
+        ],
+        "feylesoflar": [
+            {
+                "feylesofId": "cl6m2j4abkz5w0buqkeymcr2q",
+                "role": "lead"
+            },
+            {
+                "feylesofId": "cl6uiymsb4ba50cungirx3710",
+                "role": "lead"
+            }
+        ]
+    }
+]
