@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import moment from 'moment';
 import ReactMarkdown from 'react-markdown'
 import { Post } from "../services/models";
-import { RichText } from '@graphcms/rich-text-react-renderer';
 import Link from "next/link";
 import { shuffle, toLocalizedAuthor } from "../scripts";
-import Image from 'next/image';
 import { SidebarProps } from "./Sidebar";
 import remarkGfm from 'remark-gfm'
 
@@ -284,12 +281,13 @@ const PostDetail = (post: Post) => {
                                 className={`${colors?.textColor} ${colors?.glowColor}  font-semibold`}>{children}</span>,
                             h2: ({ children }) => <h2 className="text-center my-8 text-2xl">{children}</h2>,
 
+                            img: ({ src }) => <img src={src} className="rounded-xl shadow-lg"></img>,
                             ul: ({ children }) => <ul
                                 className="space-y-4 max-w-md list-disc list-inside marker:text-yellow-500 mt-8"> {children}</ul>,
                             li: ({ children }) => <li
                                 className="text-indigo-300 hover:text-yellow-500 cursor-pointer"> {children}</li>,
                             h3: ({ children }) => <h3 className="text-xl text-center mt-6">{children}</h3>
-                        }} children={postContent} remarkPlugins={[remarkGfm]} />,
+                        }} children={postContent} remarkPlugins={[remarkGfm]} />
 
                     </div>
                 </div>
