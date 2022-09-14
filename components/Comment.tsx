@@ -105,20 +105,20 @@ const Comments = ({ comments }: IComments) => {
                 <div className="flex-shrink-0 mr-3 mb-12">
                     <div className="flex flex-row ml-3 space-y-2">
                         <img className="mt-8 rounded-full w-7 h-7 mr-3 sm:w-8 sm:h-8"
-                             src={comments[0].feylesof.photo.url}
-                             alt="" />
+                            src={comments[0].feylesof.photo.url}
+                            alt="" />
                         <div
                             className={`${colors?.borderColor} border flex-1 bg-gray-800 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed`}>
                             <div className="flex flex-row">
                                 <span className={`${colors?.textColor}`}>{comments[0].feylesof.nickname}</span>
                                 <span className={`${getFeylesofBadge(comments[0].feylesof.feylesofType)} text-xs font-semibold ml-3 rounded-lg my-auto px-2.5 py-0.5`}>
-                                                        {toLocalizedFeylesof(comments[0].feylesof.feylesofType)}
-                                                    </span>
+                                    {toLocalizedFeylesof(comments[0].feylesof.feylesofType)}
+                                </span>
                             </div>
                             <form>
                                 <div className="mt-4 mb-4 w-full">
                                     <div className="py-1 rounded-t-lg bg-none">
-                                        <textarea style={{ resize: "none" }} id="comment" rows="4" className="px-0 w-full text-sm border-0 bg-gray-800 focus:ring-0 text-white placeholder-gray-400" placeholder="İnan buraya ne yazacağım hakkında hiçbir fikrim yok" required></textarea>
+                                        <textarea style={{ resize: "none" }} id="comment" className="px-0 w-full text-sm border-0 bg-gray-800 focus:ring-0 text-white placeholder-gray-400" placeholder="İnan buraya ne yazacağım hakkında hiçbir fikrim yok" required></textarea>
                                     </div>
                                 </div>
                             </form>
@@ -219,7 +219,7 @@ const Comments = ({ comments }: IComments) => {
                                                 <form>
                                                     <div className="mt-4 mb-4 w-full">
                                                         <div className="py-1 rounded-t-lg bg-none">
-                                                            <textarea style={{ resize: "none" }} id="comment" rows="4" className="px-0 w-full text-sm border-0 bg-gray-800 focus:ring-0 text-white placeholder-gray-400" placeholder="İnan buraya ne yazacağım hakkında hiçbir fikrim yok" required></textarea>
+                                                            <textarea style={{ resize: "none" }} id="comment" className="px-0 w-full text-sm border-0 bg-gray-800 focus:ring-0 text-white placeholder-gray-400" placeholder="İnan buraya ne yazacağım hakkında hiçbir fikrim yok"></textarea>
                                                         </div>
                                                     </div>
                                                 </form>
